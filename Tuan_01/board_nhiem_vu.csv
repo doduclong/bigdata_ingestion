@@ -1,0 +1,19 @@
+﻿id,tuan,nhiem_vu,chinh,du_phong,minh_chung,trang_thai
+W1-01,1,"Khảo sát NuminaMath: trường, giấy phép, kích thước",TV2,TV3,DanhMucNguon.md,Xong
+W1-02,1,Khảo sát ProofNet,TV3,TV4,DanhMucNguon.md,Xong
+W1-03,1,Khảo sát LeanDojo Benchmark 4 + corpus,TV4,TV2,DanhMucNguon.md,Xong
+W1-04,1,Script khảo sát tự động,TV7,TV1,scripts/khao_sat_nguon.py,Xong
+W1-05,1,Lược đồ v0.1 + sơ đồ,TV1,TV5,"LuocDo_v0.1.md, hinh/",Xong
+W1-06,1,"Đề cương 1 trang, phân vai, rủi ro",TV1,TV7,DeCuong_1trang.md,Xong
+W1-07,1,Dựng môi trường Python 3.11 + PySpark 4.0.1 + Java 21,TV5,TV6,requirements.txt,Xong
+W2-01,2,Script tải snapshot + manifest + checksum,TV7,TV1,manifest.json,Chưa làm
+W2-02,2,"Data contract v0.1, thống nhất với Nhóm 2–7",TV1,TV7,data_contract,Chưa làm
+W2-03,2,Reader 3 nguồn + sample 100–1.000 bản ghi,TV2/3/4,—,data_sample/,Chưa làm
+W3-01,3,"Baseline JSONL + Python tuần tự, đo thời gian/dung lượng",TV6,TV5,results/raw,Chưa làm
+W4-01,4,Spark ETL v0.1 + test lược đồ,TV5,TV6,tests/,Chưa làm
+W5-01,5,3 cấu hình lưu trữ Parquet/partition/kích thước tệp,TV6,TV5,bảng số tệp,Chưa làm
+W6-01,6,"Provenance, catalog, cập nhật gia tăng",TV7,TV1,catalog,Chưa làm
+W7-01,7,Thí nghiệm 10K/100K/toàn bộ × 3 lần,TV6,TV5,CSV + biểu đồ,Chưa làm
+W8-01,8,Ablation + phân tích điểm nghẽn,TV6,TV7,bảng ablation,Chưa làm
+W9-01,9,Release candidate + báo cáo bài báo ngắn,TV1,Cả nhóm,report,Chưa làm
+W10-01,10,API dữ liệu cho nhóm khác + demo + bảo vệ,TV1,Cả nhóm,demo,Chưa làm
