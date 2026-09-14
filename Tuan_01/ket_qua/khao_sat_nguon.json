@@ -1,0 +1,231 @@
+{
+  "numinamath": {
+    "files": [
+      {
+        "file": "test-00000-of-00001.parquet",
+        "rows": 100,
+        "bytes": 165933
+      },
+      {
+        "file": "train-00000-of-00005.parquet",
+        "rows": 171899,
+        "bytes": 246635854
+      },
+      {
+        "file": "train-00001-of-00005.parquet",
+        "rows": 171899,
+        "bytes": 246936512
+      },
+      {
+        "file": "train-00002-of-00005.parquet",
+        "rows": 171899,
+        "bytes": 246784426
+      },
+      {
+        "file": "train-00003-of-00005.parquet",
+        "rows": 171899,
+        "bytes": 246896920
+      },
+      {
+        "file": "train-00004-of-00005.parquet",
+        "rows": 171898,
+        "bytes": 246931989
+      }
+    ],
+    "fields": {
+      "source": {
+        "n": 171899,
+        "empty_rate": 0.0,
+        "avg_len": 9.3,
+        "max_len": 14
+      },
+      "problem": {
+        "n": 171899,
+        "empty_rate": 0.0,
+        "avg_len": 251.5,
+        "max_len": 4733
+      },
+      "solution": {
+        "n": 171899,
+        "empty_rate": 0.0,
+        "avg_len": 1170.6,
+        "max_len": 9193
+      },
+      "messages": {
+        "note": "list<struct<role,content>>; trùng nội dung problem/solution"
+      }
+    },
+    "subset": {
+      "cn_k12": 276589,
+      "synthetic_math": 167895,
+      "orca_math": 153334,
+      "olympiads": 150576,
+      "synthetic_amc": 62111,
+      "aops_forum": 30195,
+      "math": 7478,
+      "gsm8k": 7345,
+      "amc_aime": 4071
+    },
+    "rows": 859594,
+    "latex_rate_problem_shard0": 0.7081
+  },
+  "proofnet": {
+    "files": [
+      {
+        "file": "valid.jsonl",
+        "rows": 185,
+        "bytes": 259368
+      },
+      {
+        "file": "test.jsonl",
+        "rows": 186,
+        "bytes": 279916
+      }
+    ],
+    "rows": 371,
+    "subset": {
+      "Dummit-Foote": 87,
+      "Munkres": 60,
+      "Rudin": 58,
+      "Herstein": 47,
+      "Axler": 28,
+      "Artin": 28,
+      "Ireland-Rosen": 21,
+      "Shakarchi": 16,
+      "Pugh": 14,
+      "Putnam": 12
+    },
+    "fields": {
+      "formal_statement": {
+        "n": 371,
+        "empty_rate": 0.0,
+        "avg_len": 149.9,
+        "max_len": 351
+      },
+      "id": {
+        "n": 371,
+        "empty_rate": 0.0,
+        "avg_len": 22.9,
+        "max_len": 29
+      },
+      "nl_proof": {
+        "n": 371,
+        "empty_rate": 0.0054,
+        "avg_len": 793.7,
+        "max_len": 3926
+      },
+      "nl_statement": {
+        "n": 371,
+        "empty_rate": 0.0,
+        "avg_len": 132.6,
+        "max_len": 474
+      },
+      "src_header": {
+        "n": 371,
+        "empty_rate": 0.0,
+        "avg_len": 174.8,
+        "max_len": 224
+      }
+    },
+    "latex_rate_nl_statement": 0.9191
+  },
+  "leandojo": {
+    "metadata": {
+      "dataset_name": "LeanDojo Benchmark 4",
+      "creation_time": "2024-07-02 13:14:48.804567",
+      "from_repo": {
+        "url": "https://github.com/leanprover-community/mathlib4",
+        "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5"
+      },
+      "leandojo_version": "2.0.0"
+    },
+    "files": [
+      {
+        "file": "random/train.json",
+        "rows": 118517,
+        "bytes": 373077058
+      },
+      {
+        "file": "random/val.json",
+        "rows": 2000,
+        "bytes": 6456932
+      },
+      {
+        "file": "random/test.json",
+        "rows": 2000,
+        "bytes": 7129686
+      }
+    ],
+    "rows": 122517,
+    "subset": {
+      "Mathlib.Algebra": 19349,
+      "Mathlib.Data": 19332,
+      "Mathlib.Analysis": 13169,
+      "Mathlib.Topology": 11356,
+      "Mathlib.Order": 9567,
+      "Mathlib.MeasureTheory": 7038,
+      "Mathlib.CategoryTheory": 6400,
+      "Mathlib.RingTheory": 6326,
+      "Mathlib.LinearAlgebra": 5525,
+      "Mathlib.GroupTheory": 2957,
+      "Mathlib.NumberTheory": 2864,
+      "Mathlib.SetTheory": 2572,
+      "Mathlib.Geometry": 2381,
+      "Mathlib.Combinatorics": 2181,
+      ".lake.packages": 1806
+    },
+    "fields": {
+      "commit": {
+        "n": 122517,
+        "empty_rate": 0.0,
+        "avg_len": 40.0,
+        "max_len": 40
+      },
+      "end": {
+        "n": 122517,
+        "empty_rate": 0.0,
+        "avg_len": 2.0,
+        "max_len": 2
+      },
+      "file_path": {
+        "n": 122517,
+        "empty_rate": 0.0,
+        "avg_len": 40.2,
+        "max_len": 79
+      },
+      "full_name": {
+        "n": 122517,
+        "empty_rate": 0.0,
+        "avg_len": 29.1,
+        "max_len": 121
+      },
+      "start": {
+        "n": 122517,
+        "empty_rate": 0.0,
+        "avg_len": 2.0,
+        "max_len": 2
+      },
+      "traced_tactics": {
+        "n": 122517,
+        "empty_rate": 0.4977,
+        "avg_len": 4.2,
+        "max_len": 128
+      },
+      "url": {
+        "n": 122517,
+        "empty_rate": 0.0,
+        "avg_len": 48.0,
+        "max_len": 48
+      }
+    },
+    "empty_traced_tactics_rate": 0.4977,
+    "avg_tactics_nonempty": 4.22,
+    "corpus": {
+      "files": 5674,
+      "premises": 180973,
+      "bytes": 60420959
+    }
+  },
+  "total_rows": 982482,
+  "elapsed_s": 9.4
+}
