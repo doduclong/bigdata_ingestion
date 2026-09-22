@@ -1,0 +1,9 @@
+20261021-193534-baseline-10k-515650 ok runtime=1.76s thr=5796.0 rss=186.5MB q=0.541s
+20261021-193537-baseline-10k-b039d9 ok runtime=1.447s thr=7083.5 rss=186.6MB q=0.5399s
+20261021-193539-baseline-10k-7c95db ok runtime=1.482s thr=6922.4 rss=187.7MB q=0.5748s
+20261021-193541-baseline-100k-6db55f ok runtime=8.022s thr=12537.3 rss=211.0MB q=5.3067s
+20261021-193554-baseline-100k-1cf414 ok runtime=7.13s thr=14114.3 rss=211.1MB q=5.298s
+20261021-193607-baseline-100k-0497c3 ok runtime=7.225s thr=13924.6 rss=211.2MB q=5.26s
+20261021-193620-baseline-full-613d6c ok runtime=79.748s thr=12352.2 rss=416.1MB q=51.9133s
+20261021-193832-baseline-full-7970a1 ok runtime=69.102s thr=14260.5 rss=414.9MB q=52.1199s
+20261021-194033-baseline-full-48a0ca ok runtime=68.532s thr=14377.8 rss=415.8MB q=51.9622s
