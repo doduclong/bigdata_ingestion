@@ -1,0 +1,29 @@
+{
+ "runtime_s": 54.769,
+ "peak_rss_mb": 2788.0,
+ "read_bytes": 10085712715,
+ "write_bytes": 1281665396,
+ "status": "ok",
+ "records_in": 982482,
+ "records_out": 982477,
+ "records_error": 5,
+ "read_errors": 0,
+ "schema_error_rate": 5e-06,
+ "per_source": {
+  "numinamath": 859594,
+  "leandojo": 122512,
+  "proofnet": 371
+ },
+ "quality_flags": {
+  "W03_REPLACEMENT_CHAR": 5,
+  "W04_CONTROL_CHAR": 266,
+  "W05_UNBALANCED_DOLLAR": 25249,
+  "W01_EMPTY_NL_SOLUTION": 2
+ },
+ "elapsed_s": 53.224,
+ "stats_s": 0.573,
+ "throughput_rps": 18459.3,
+ "bytes_out": 461539019,
+ "files_out": 19,
+ "spark_startup_s": 0.049
+}
