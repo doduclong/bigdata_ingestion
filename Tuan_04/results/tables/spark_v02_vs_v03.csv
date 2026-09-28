@@ -1,0 +1,3 @@
+version,n_runs,runtime_s_median,runtime_s_min,runtime_s_max,elapsed_s_median,elapsed_s_min,elapsed_s_max,peak_rss_mb_median,peak_rss_mb_min,peak_rss_mb_max
+v0.2 (cắt ':=' đầu tiên),3,51.211,51.021,51.364,50.432,50.283,50.611,2682.4,2680.5,2760.4
+v0.3 (cắt ':=' ở mức ngoặc 0),3,54.526,54.442,54.811,53.155,52.75,53.76,2690.1,2685.6,2701.6
