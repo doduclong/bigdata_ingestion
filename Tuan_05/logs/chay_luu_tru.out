@@ -1,0 +1,31 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/21 20:29:20 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in standalone/kubernetes and LOCAL_DIRS in YARN).
+L1_parquet_flat 41.287 {'files': 4, 'bytes': 476428351, 'partitions': 1, 'avg_file_mb': 113.589, 'min_file_kb': 116271.9, 'max_file_mb': 113.64, 'small_files_lt_8mb': 0, 'rows': 982477}
+L2_parquet_src_ver 19.89 {'files': 6, 'bytes': 466157984, 'partitions': 3, 'avg_file_mb': 74.094, 'min_file_kb': 154.0, 'max_file_mb': 104.48, 'small_files_lt_8mb': 1, 'rows': 982477}
+L3_parquet_src_ver_subset 18.271 {'files': 54, 'bytes': 443808659, 'partitions': 54, 'avg_file_mb': 7.838, 'min_file_kb': 14.0, 'max_file_mb': 112.57, 'small_files_lt_8mb': 48, 'rows': 982477}
+L4_parquet_small_files 60.401 {'files': 512, 'bytes': 487678975, 'partitions': 3, 'avg_file_mb': 0.908, 'min_file_kb': 22.9, 'max_file_mb': 1.02, 'small_files_lt_8mb': 512, 'rows': 982477}
+L5 {'compaction_s': 19.28, 'partitions_rewritten': 3, 'files_before': 512, 'files_after': 6} {'files': 6, 'bytes': 471995547, 'partitions': 3, 'avg_file_mb': 75.022, 'min_file_kb': 156.5, 'max_file_mb': 104.67, 'small_files_lt_8mb': 1, 'rows': 982477}
+L0_jsonl 0 6.2741 {'Q0_full_scan': 1.099, 'Q1_count_by_source_split': 1.1106, 'Q2_olympiad_latex': 0.995, 'Q3_point_lookup': 1.0258, 'Q4_top_premises': 1.0094, 'Q5_provenance_audit': 1.0343} []
+L0_jsonl 1 6.208 {'Q0_full_scan': 1.083, 'Q1_count_by_source_split': 0.9746, 'Q2_olympiad_latex': 1.0399, 'Q3_point_lookup': 1.0311, 'Q4_top_premises': 0.9976, 'Q5_provenance_audit': 1.0818} []
+L0_jsonl 2 6.0658 {'Q0_full_scan': 1.1036, 'Q1_count_by_source_split': 0.9771, 'Q2_olympiad_latex': 0.9963, 'Q3_point_lookup': 0.9884, 'Q4_top_premises': 0.9777, 'Q5_provenance_audit': 1.0227} []
+L1_parquet_flat 0 0.6741 {'Q0_full_scan': 0.4511, 'Q1_count_by_source_split': 0.0169, 'Q2_olympiad_latex': 0.112, 'Q3_point_lookup': 0.053, 'Q4_top_premises': 0.0185, 'Q5_provenance_audit': 0.0226} []
+L1_parquet_flat 1 0.6289 {'Q0_full_scan': 0.4344, 'Q1_count_by_source_split': 0.0175, 'Q2_olympiad_latex': 0.086, 'Q3_point_lookup': 0.0493, 'Q4_top_premises': 0.0188, 'Q5_provenance_audit': 0.0229} []
+L1_parquet_flat 2 0.6111 {'Q0_full_scan': 0.427, 'Q1_count_by_source_split': 0.0107, 'Q2_olympiad_latex': 0.0863, 'Q3_point_lookup': 0.0386, 'Q4_top_premises': 0.0253, 'Q5_provenance_audit': 0.0232} []
+L2_parquet_src_ver 0 0.6752 {'Q0_full_scan': 0.4532, 'Q1_count_by_source_split': 0.0106, 'Q2_olympiad_latex': 0.0901, 'Q3_point_lookup': 0.0519, 'Q4_top_premises': 0.0454, 'Q5_provenance_audit': 0.024} []
+L2_parquet_src_ver 1 0.6665 {'Q0_full_scan': 0.4449, 'Q1_count_by_source_split': 0.0158, 'Q2_olympiad_latex': 0.0843, 'Q3_point_lookup': 0.0513, 'Q4_top_premises': 0.0457, 'Q5_provenance_audit': 0.0245} []
+L2_parquet_src_ver 2 0.6578 {'Q0_full_scan': 0.4462, 'Q1_count_by_source_split': 0.009, 'Q2_olympiad_latex': 0.085, 'Q3_point_lookup': 0.0459, 'Q4_top_premises': 0.0473, 'Q5_provenance_audit': 0.0244} []
+L3_parquet_src_ver_subset 0 0.7752 {'Q0_full_scan': 0.556, 'Q1_count_by_source_split': 0.0234, 'Q2_olympiad_latex': 0.0751, 'Q3_point_lookup': 0.067, 'Q4_top_premises': 0.0225, 'Q5_provenance_audit': 0.0312} []
+L3_parquet_src_ver_subset 1 0.7417 {'Q0_full_scan': 0.5412, 'Q1_count_by_source_split': 0.02, 'Q2_olympiad_latex': 0.0726, 'Q3_point_lookup': 0.0524, 'Q4_top_premises': 0.0238, 'Q5_provenance_audit': 0.0317} []
+L3_parquet_src_ver_subset 2 0.7425 {'Q0_full_scan': 0.5408, 'Q1_count_by_source_split': 0.0204, 'Q2_olympiad_latex': 0.0731, 'Q3_point_lookup': 0.0527, 'Q4_top_premises': 0.0246, 'Q5_provenance_audit': 0.0309} []
+L4_parquet_small_files 0 0.9361 {'Q0_full_scan': 0.4853, 'Q1_count_by_source_split': 0.0932, 'Q2_olympiad_latex': 0.123, 'Q3_point_lookup': 0.1001, 'Q4_top_premises': 0.0284, 'Q5_provenance_audit': 0.1061} []
+L4_parquet_small_files 1 0.9558 {'Q0_full_scan': 0.4871, 'Q1_count_by_source_split': 0.1039, 'Q2_olympiad_latex': 0.1218, 'Q3_point_lookup': 0.106, 'Q4_top_premises': 0.0283, 'Q5_provenance_audit': 0.1087} []
+L4_parquet_small_files 2 0.9294 {'Q0_full_scan': 0.4772, 'Q1_count_by_source_split': 0.0907, 'Q2_olympiad_latex': 0.1193, 'Q3_point_lookup': 0.1006, 'Q4_top_premises': 0.0328, 'Q5_provenance_audit': 0.1088} []
+L5_parquet_compacted 0 0.6849 {'Q0_full_scan': 0.4591, 'Q1_count_by_source_split': 0.0092, 'Q2_olympiad_latex': 0.0863, 'Q3_point_lookup': 0.0555, 'Q4_top_premises': 0.0473, 'Q5_provenance_audit': 0.0275} []
+L5_parquet_compacted 1 0.7051 {'Q0_full_scan': 0.4534, 'Q1_count_by_source_split': 0.0147, 'Q2_olympiad_latex': 0.0852, 'Q3_point_lookup': 0.0485, 'Q4_top_premises': 0.0661, 'Q5_provenance_audit': 0.0372} []
+L5_parquet_compacted 2 0.6697 {'Q0_full_scan': 0.4524, 'Q1_count_by_source_split': 0.0092, 'Q2_olympiad_latex': 0.0867, 'Q3_point_lookup': 0.0515, 'Q4_top_premises': 0.0453, 'Q5_provenance_audit': 0.0246} []
+SUCCESS: The process with PID 22340 (child process of PID 8276) has been terminated.
+SUCCESS: The process with PID 8276 (child process of PID 9252) has been terminated.
+SUCCESS: The process with PID 9252 (child process of PID 8376) has been terminated.
