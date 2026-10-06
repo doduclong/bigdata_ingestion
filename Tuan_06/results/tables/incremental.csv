@@ -1,0 +1,5 @@
+buoc,n_runs,runtime_median_s,runtime_min_s,runtime_max_s,peak_rss_mb_max,new,unchanged,conflict,files_added,compaction_median_s
+Dựng lại toàn bộ (982.477),3,52.479,51.216,64.024,2729.6,982477,,,19,
+v0 nạp ban đầu (trừ NuminaMath shard 4),3,53.474,51.909,53.998,2701.9,810579,0,0,17,3.826
+v1 batch mới NuminaMath shard 4,3,22.332,22.031,23.112,2471.4,171898,0,0,5,3.218
+v2 nạp lại batch shard 4 (idempotent),3,17.609,17.379,18.083,2575.0,0,171898,0,0,
