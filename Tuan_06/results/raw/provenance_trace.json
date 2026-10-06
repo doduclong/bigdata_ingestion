@@ -1,0 +1,466 @@
+{
+ "checked": 30,
+ "ok": 30,
+ "results": [
+  {
+   "record_id": "66e05f6bb9258b9e3003",
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   "raw_row": 41416,
+   "license": "CC-BY-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "lean_full_name",
+    "lean_file_path",
+    "lean_start_line",
+    "num_tactics"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "8098fe92b0f339b16172",
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   "raw_row": 116508,
+   "license": "CC-BY-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "lean_full_name",
+    "lean_file_path",
+    "lean_start_line",
+    "num_tactics"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "a16ffa664f5cd789a607",
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/test.jsonl",
+   "raw_row": 43,
+   "license": "MIT",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "source_record_key",
+    "nl_problem",
+    "formal_statement"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "8859eaf55ade50a0f584",
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/test.jsonl",
+   "raw_row": 133,
+   "license": "MIT",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "source_record_key",
+    "nl_problem",
+    "formal_statement"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "ef0140131f5dc31a9f7c",
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/test.jsonl",
+   "raw_row": 135,
+   "license": "MIT",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "source_record_key",
+    "nl_problem",
+    "formal_statement"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "8cd1f61c639d87a7fff4",
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/test.jsonl",
+   "raw_row": 153,
+   "license": "MIT",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "source_record_key",
+    "nl_problem",
+    "formal_statement"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "665458d5e46080a3d017",
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/test.jsonl",
+   "raw_row": 160,
+   "license": "MIT",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "source_record_key",
+    "nl_problem",
+    "formal_statement"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "e96112ba72282841b773",
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/test.jsonl",
+   "raw_row": 180,
+   "license": "MIT",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "source_record_key",
+    "nl_problem",
+    "formal_statement"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "41ff4bb0fa64eaaec33c",
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/valid.jsonl",
+   "raw_row": 19,
+   "license": "MIT",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "source_record_key",
+    "nl_problem",
+    "formal_statement"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "4c4b07c7c081d24a0a52",
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/valid.jsonl",
+   "raw_row": 101,
+   "license": "MIT",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "source_record_key",
+    "nl_problem",
+    "formal_statement"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "27801a8404704697ec55",
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/valid.jsonl",
+   "raw_row": 122,
+   "license": "MIT",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "source_record_key",
+    "nl_problem",
+    "formal_statement"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "431494d3e1a009320272",
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/valid.jsonl",
+   "raw_row": 171,
+   "license": "MIT",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "source_record_key",
+    "nl_problem",
+    "formal_statement"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "1e8b12d1c9c3a0498818",
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00004-of-00005.parquet",
+   "raw_row": 99940,
+   "license": "Apache-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "nl_problem",
+    "nl_solution",
+    "subset"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "0e7d149175b243276d59",
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/test.json",
+   "raw_row": 652,
+   "license": "CC-BY-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "lean_full_name",
+    "lean_file_path",
+    "lean_start_line",
+    "num_tactics"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "9613dc752097cec039e5",
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   "raw_row": 27087,
+   "license": "CC-BY-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "lean_full_name",
+    "lean_file_path",
+    "lean_start_line",
+    "num_tactics"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "7c6a698548d633c2c1a6",
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   "raw_row": 9192,
+   "license": "CC-BY-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "lean_full_name",
+    "lean_file_path",
+    "lean_start_line",
+    "num_tactics"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "7606a661eb893d7a2cec",
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   "raw_row": 54660,
+   "license": "CC-BY-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "lean_full_name",
+    "lean_file_path",
+    "lean_start_line",
+    "num_tactics"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "8a1fba44d2f69767dc07",
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00001-of-00005.parquet",
+   "raw_row": 30593,
+   "license": "Apache-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "nl_problem",
+    "nl_solution",
+    "subset"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "354dd752e81ab1dbc055",
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   "raw_row": 58062,
+   "license": "CC-BY-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "lean_full_name",
+    "lean_file_path",
+    "lean_start_line",
+    "num_tactics"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "55aa33ef1bb45d93df47",
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   "raw_row": 106422,
+   "license": "CC-BY-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "lean_full_name",
+    "lean_file_path",
+    "lean_start_line",
+    "num_tactics"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "fcdeeb3a527173e8ee5c",
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   "raw_row": 13812,
+   "license": "CC-BY-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "lean_full_name",
+    "lean_file_path",
+    "lean_start_line",
+    "num_tactics"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "7769666b0bbffc0d7024",
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   "raw_row": 36074,
+   "license": "CC-BY-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "lean_full_name",
+    "lean_file_path",
+    "lean_start_line",
+    "num_tactics"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "b1d3532309f80ca9d2e2",
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00000-of-00005.parquet",
+   "raw_row": 167816,
+   "license": "Apache-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "nl_problem",
+    "nl_solution",
+    "subset"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "dfa928bec3fe6fb811ef",
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00002-of-00005.parquet",
+   "raw_row": 8552,
+   "license": "Apache-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "nl_problem",
+    "nl_solution",
+    "subset"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "db85d53cc25d1cf5dd44",
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00002-of-00005.parquet",
+   "raw_row": 24536,
+   "license": "Apache-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "nl_problem",
+    "nl_solution",
+    "subset"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "7c720916ee7581ac7139",
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00001-of-00005.parquet",
+   "raw_row": 165769,
+   "license": "Apache-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "nl_problem",
+    "nl_solution",
+    "subset"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "499322cb619917f5519e",
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00000-of-00005.parquet",
+   "raw_row": 44849,
+   "license": "Apache-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "nl_problem",
+    "nl_solution",
+    "subset"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "4ad26605cf326d54ad12",
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00004-of-00005.parquet",
+   "raw_row": 62737,
+   "license": "Apache-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "nl_problem",
+    "nl_solution",
+    "subset"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "161e41cf4933cf88a87d",
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00000-of-00005.parquet",
+   "raw_row": 72507,
+   "license": "Apache-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "nl_problem",
+    "nl_solution",
+    "subset"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  },
+  {
+   "record_id": "ad6338f9400b7a656c92",
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00003-of-00005.parquet",
+   "raw_row": 149376,
+   "license": "Apache-2.0",
+   "raw_sha256_ok": true,
+   "fields_checked": [
+    "nl_problem",
+    "nl_solution",
+    "subset"
+   ],
+   "fields_mismatch": [],
+   "ok": true
+  }
+ ]
+}
