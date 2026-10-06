@@ -1,0 +1,31 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/21 20:39:39 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in standalone/kubernetes and LOCAL_DIRS in YARN).
+full rebuild 64.024
+v0 nạp ban đầu (trừ NuminaMath shard 4) 53.474 {'new': 810579, 'unchanged': 0, 'conflict': 0} {'compaction_s': 3.756, 'partitions_rewritten': 3, 'files_before': 17, 'files_after': 11, 'mb_rewritten': 61.8, 'mode': 'minor<32MB'}
+v1 batch mới NuminaMath shard 4 22.332 {'new': 171898, 'unchanged': 0, 'conflict': 0} {'compaction_s': 3.228, 'partitions_rewritten': 1, 'files_before': 16, 'files_after': 12, 'mb_rewritten': 83.5, 'mode': 'minor<32MB'}
+v2 nạp lại batch shard 4 (idempotent) 17.379 {'new': 0, 'unchanged': 171898, 'conflict': 0} None
+verify {'lake_rows': 982477, 'lake_distinct_keys': 982477, 'full_rows': 982477, 'only_in_lake': 0, 'only_in_full': 0}
+full rebuild 52.479
+v0 nạp ban đầu (trừ NuminaMath shard 4) 51.909 {'new': 810579, 'unchanged': 0, 'conflict': 0} {'compaction_s': 3.826, 'partitions_rewritten': 3, 'files_before': 17, 'files_after': 11, 'mb_rewritten': 61.8, 'mode': 'minor<32MB'}
+v1 batch mới NuminaMath shard 4 22.031 {'new': 171898, 'unchanged': 0, 'conflict': 0} {'compaction_s': 3.196, 'partitions_rewritten': 1, 'files_before': 16, 'files_after': 12, 'mb_rewritten': 83.5, 'mode': 'minor<32MB'}
+v2 nạp lại batch shard 4 (idempotent) 17.609 {'new': 0, 'unchanged': 171898, 'conflict': 0} None
+verify {'lake_rows': 982477, 'lake_distinct_keys': 982477, 'full_rows': 982477, 'only_in_lake': 0, 'only_in_full': 0}
+full rebuild 51.216
+v0 nạp ban đầu (trừ NuminaMath shard 4) 53.998 {'new': 810579, 'unchanged': 0, 'conflict': 0} {'compaction_s': 4.023, 'partitions_rewritten': 3, 'files_before': 17, 'files_after': 11, 'mb_rewritten': 61.8, 'mode': 'minor<32MB'}
+v1 batch mới NuminaMath shard 4 23.112 {'new': 171898, 'unchanged': 0, 'conflict': 0} {'compaction_s': 3.218, 'partitions_rewritten': 1, 'files_before': 16, 'files_after': 12, 'mb_rewritten': 83.5, 'mode': 'minor<32MB'}
+v2 nạp lại batch shard 4 (idempotent) 18.083 {'new': 0, 'unchanged': 171898, 'conflict': 0} None
+verify {'lake_rows': 982477, 'lake_distinct_keys': 982477, 'full_rows': 982477, 'only_in_lake': 0, 'only_in_full': 0}
+Traceback (most recent call last):
+  File "D:\Study\thsHTTT\bigdata\Tuan_06\scripts\chay_gia_tang.py", line 92, in <module>
+    cat = build_catalog(LAKE, MANIFEST_PATH)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Study\thsHTTT\bigdata\Tuan_06\src\mdl\catalog.py", line 46, in build_catalog
+    errors = con.execute(f"SELECT source, unnest(errors) e, count(*) FROM read_json("
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+duckdb.duckdb.BinderException: Binder Error: Cannot group on an UNNEST or UNLIST clause
+SUCCESS: The process with PID 10776 (child process of PID 4176) has been terminated.
+SUCCESS: The process with PID 4176 (child process of PID 17524) has been terminated.
+SUCCESS: The process with PID 17524 (child process of PID 288) has been terminated.
