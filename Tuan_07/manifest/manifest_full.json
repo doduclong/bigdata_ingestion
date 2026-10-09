@@ -1,0 +1,232 @@
+{
+  "manifest_version": "1",
+  "created_at": "2026-10-21T09:53:24+00:00",
+  "sources": {
+    "numinamath": {
+      "version": "hf-9d8d210c",
+      "license": "Apache-2.0",
+      "url": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT"
+    },
+    "proofnet": {
+      "version": "git-509ad797",
+      "license": "MIT",
+      "url": "https://github.com/zhangir-azerbayev/ProofNet"
+    },
+    "leandojo": {
+      "version": "v10-29dcec07",
+      "license": "CC-BY-2.0",
+      "url": "https://zenodo.org/records/12740403"
+    }
+  },
+  "files": [
+    {
+      "source": "numinamath",
+      "source_version": "hf-9d8d210c",
+      "license": "Apache-2.0",
+      "source_url": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT",
+      "raw_uri": "raw/numinamath/test-00000-of-00001.parquet",
+      "kind": "download",
+      "bytes": 165933,
+      "sha256": "62f94a9529fadf5fa08711ac932205eb4ee9fe57320052c8bb6a61ba0759d731",
+      "downloaded_at": "2026-10-21T09:36:25+00:00"
+    },
+    {
+      "source": "numinamath",
+      "source_version": "hf-9d8d210c",
+      "license": "Apache-2.0",
+      "source_url": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT",
+      "raw_uri": "raw/numinamath/train-00000-of-00005.parquet",
+      "kind": "download",
+      "bytes": 246635854,
+      "sha256": "25c0fa2ca96dd8078470ad1bbc439d0d211fd8b7d22e04abf7f61e9be9bf9ec3",
+      "downloaded_at": "2026-10-21T09:36:34+00:00"
+    },
+    {
+      "source": "numinamath",
+      "source_version": "hf-9d8d210c",
+      "license": "Apache-2.0",
+      "source_url": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT",
+      "raw_uri": "raw/numinamath/train-00001-of-00005.parquet",
+      "kind": "download",
+      "bytes": 246936512,
+      "sha256": "2d4ba17018b6563728e0a92b38ee965479476cc41975923c224391e90b436236",
+      "downloaded_at": "2026-10-21T09:36:43+00:00"
+    },
+    {
+      "source": "numinamath",
+      "source_version": "hf-9d8d210c",
+      "license": "Apache-2.0",
+      "source_url": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT",
+      "raw_uri": "raw/numinamath/train-00002-of-00005.parquet",
+      "kind": "download",
+      "bytes": 246784426,
+      "sha256": "c607c18379548f4fda05981f871518adf2506adc870825f5ccbf91a1fbb38183",
+      "downloaded_at": "2026-10-21T09:36:52+00:00"
+    },
+    {
+      "source": "numinamath",
+      "source_version": "hf-9d8d210c",
+      "license": "Apache-2.0",
+      "source_url": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT",
+      "raw_uri": "raw/numinamath/train-00003-of-00005.parquet",
+      "kind": "download",
+      "bytes": 246896920,
+      "sha256": "e07293604d1ae0d16dc2708c9c51205760a0253c999e1a5a2ffd971474b3c06d",
+      "downloaded_at": "2026-10-21T09:37:01+00:00"
+    },
+    {
+      "source": "numinamath",
+      "source_version": "hf-9d8d210c",
+      "license": "Apache-2.0",
+      "source_url": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT",
+      "raw_uri": "raw/numinamath/train-00004-of-00005.parquet",
+      "kind": "download",
+      "bytes": 246931989,
+      "sha256": "e3929523d643d93c705444c349b3cc6467cfd27ce8fe502211279889d9b753b9",
+      "downloaded_at": "2026-10-21T09:37:11+00:00"
+    },
+    {
+      "source": "proofnet",
+      "source_version": "git-509ad797",
+      "license": "MIT",
+      "source_url": "https://github.com/zhangir-azerbayev/ProofNet",
+      "raw_uri": "raw/proofnet/valid.jsonl",
+      "kind": "download",
+      "bytes": 259368,
+      "sha256": "3bfbebfc1f279d16747a8ac89196910bde1a2781edcaa4ea3b1bdc64eb9fe50b",
+      "downloaded_at": "2026-10-21T09:37:13+00:00"
+    },
+    {
+      "source": "proofnet",
+      "source_version": "git-509ad797",
+      "license": "MIT",
+      "source_url": "https://github.com/zhangir-azerbayev/ProofNet",
+      "raw_uri": "raw/proofnet/test.jsonl",
+      "kind": "download",
+      "bytes": 279916,
+      "sha256": "4eae0ba4a6503d6828afb63b4936f9913cce299ef81a17c372e1b75b56187177",
+      "downloaded_at": "2026-10-21T09:37:12+00:00"
+    },
+    {
+      "source": "proofnet",
+      "source_version": "git-509ad797",
+      "license": "MIT",
+      "source_url": "https://github.com/zhangir-azerbayev/ProofNet",
+      "raw_uri": "raw/proofnet/LICENSE",
+      "kind": "download",
+      "bytes": 1074,
+      "sha256": "01846beaa8adeceed591e968f4a878cc61eaafe2ccebad87c481c76fd43e83e2",
+      "downloaded_at": "2026-10-21T09:37:13+00:00"
+    },
+    {
+      "source": "leandojo",
+      "source_version": "v10-29dcec07",
+      "license": "CC-BY-2.0",
+      "source_url": "https://zenodo.org/records/12740403",
+      "raw_uri": "raw/leandojo/leandojo_benchmark_4.tar.gz",
+      "kind": "download",
+      "bytes": 68141936,
+      "sha256": "19b9a31968229d5bae4b959be9351d92740643d16a58c7f58f6d82795b8a98a4",
+      "downloaded_at": "2026-10-21T09:40:08+00:00"
+    },
+    {
+      "source": "leandojo",
+      "source_version": "v10-29dcec07",
+      "license": "CC-BY-2.0",
+      "source_url": "https://zenodo.org/records/12740403",
+      "raw_uri": "raw/leandojo/leandojo_benchmark_4/metadata.json",
+      "kind": "extracted",
+      "bytes": 244,
+      "sha256": "a397544ea1bcec9d25fa8797fea0387314ec77f74e34610e9d5017dc3fec4a73",
+      "downloaded_at": "2026-10-21T09:40:08+00:00"
+    },
+    {
+      "source": "leandojo",
+      "source_version": "v10-29dcec07",
+      "license": "CC-BY-2.0",
+      "source_url": "https://zenodo.org/records/12740403",
+      "raw_uri": "raw/leandojo/leandojo_benchmark_4/corpus.jsonl",
+      "kind": "extracted",
+      "bytes": 60420959,
+      "sha256": "5d9f7d8321fc01380003860acc2a3ea5ffbe2f956c45a574aa29f7bb38d2ccd5",
+      "downloaded_at": "2026-10-21T09:40:08+00:00"
+    },
+    {
+      "source": "leandojo",
+      "source_version": "v10-29dcec07",
+      "license": "CC-BY-2.0",
+      "source_url": "https://zenodo.org/records/12740403",
+      "raw_uri": "raw/leandojo/leandojo_benchmark_4/licenses/README.md",
+      "kind": "extracted",
+      "bytes": 173,
+      "sha256": "4031ab4528f0bc042344fe5d68568080dd56e989ede81b9ae15e3258334bd849",
+      "downloaded_at": "2026-10-21T09:40:08+00:00"
+    },
+    {
+      "source": "leandojo",
+      "source_version": "v10-29dcec07",
+      "license": "CC-BY-2.0",
+      "source_url": "https://zenodo.org/records/12740403",
+      "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/train.json",
+      "kind": "extracted",
+      "bytes": 373077058,
+      "sha256": "eef6fb1382095ab4c28d4a0b0e2b5999a96cbef454dcf2899776957e83a40c1a",
+      "downloaded_at": "2026-10-21T09:40:08+00:00"
+    },
+    {
+      "source": "leandojo",
+      "source_version": "v10-29dcec07",
+      "license": "CC-BY-2.0",
+      "source_url": "https://zenodo.org/records/12740403",
+      "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/val.json",
+      "kind": "extracted",
+      "bytes": 6456932,
+      "sha256": "8ef9d5fbc1c6c8293e77a655fb888b687da804f1da9e02d6714569c49e905c70",
+      "downloaded_at": "2026-10-21T09:40:08+00:00"
+    },
+    {
+      "source": "leandojo",
+      "source_version": "v10-29dcec07",
+      "license": "CC-BY-2.0",
+      "source_url": "https://zenodo.org/records/12740403",
+      "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/test.json",
+      "kind": "extracted",
+      "bytes": 7129686,
+      "sha256": "9f84ac4cbd5ea9031ab335d172e7a5b1873e4ac773721e60cb1a4cc5b4e2a0ae",
+      "downloaded_at": "2026-10-21T09:40:08+00:00"
+    },
+    {
+      "source": "leandojo",
+      "source_version": "v10-29dcec07",
+      "license": "CC-BY-2.0",
+      "source_url": "https://zenodo.org/records/12740403",
+      "raw_uri": "raw/leandojo/leandojo_benchmark_4/novel_premises/train.json",
+      "kind": "extracted",
+      "bytes": 364899019,
+      "sha256": "b092fd3a4bf117abfb33caeeaa0ef12317ed9142827294a292314e9469800fe6",
+      "downloaded_at": "2026-10-21T09:40:08+00:00"
+    },
+    {
+      "source": "leandojo",
+      "source_version": "v10-29dcec07",
+      "license": "CC-BY-2.0",
+      "source_url": "https://zenodo.org/records/12740403",
+      "raw_uri": "raw/leandojo/leandojo_benchmark_4/novel_premises/val.json",
+      "kind": "extracted",
+      "bytes": 10314569,
+      "sha256": "ac1ea13995be17553e56bbf60d088c9e9ddf13c2045dade2c8474c1a44c983cf",
+      "downloaded_at": "2026-10-21T09:40:08+00:00"
+    },
+    {
+      "source": "leandojo",
+      "source_version": "v10-29dcec07",
+      "license": "CC-BY-2.0",
+      "source_url": "https://zenodo.org/records/12740403",
+      "raw_uri": "raw/leandojo/leandojo_benchmark_4/novel_premises/test.json",
+      "kind": "extracted",
+      "bytes": 11450088,
+      "sha256": "6c001d1cacd141a4301965fa03cb3c756c19aa09fb30daf9cb2ccb48396ff3fe",
+      "downloaded_at": "2026-10-21T09:40:08+00:00"
+    }
+  ]
+}
