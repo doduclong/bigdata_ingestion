@@ -1,0 +1,5 @@
+method,runtime_median_s,speedup_vs_baseline
+Baseline Python 1 nhân,65.848,1.0
+Spark 2 nhân,75.195,0.88
+Spark 4 nhân,53.806,1.22
+Spark 8 nhân,59.793,1.1
