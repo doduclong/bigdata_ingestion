@@ -1,0 +1,20 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/21 21:17:04 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in standalone/kubernetes and LOCAL_DIRS in YARN).
+20261021-211702-spark-c8-10k-a5e33d ok total=35.042s etl=29.911s thr=334.3 rss=1405.2MB files=15
+20261021-211737-spark-c8-10k-324069 ok total=25.08s etl=24.41s thr=409.7 rss=1625.6MB files=15
+20261021-211803-spark-c8-10k-38dcef ok total=24.496s etl=23.912s thr=418.2 rss=1908.9MB files=15
+20261021-211828-spark-c8-100k-3b046c ok total=31.323s etl=30.211s thr=3310.0 rss=1904.3MB files=18
+20261021-211859-spark-c8-100k-210207 ok total=30.461s etl=29.286s thr=3414.6 rss=1942.0MB files=18
+20261021-211930-spark-c8-100k-dd01a3 ok total=31.658s etl=30.443s thr=3284.8 rss=2089.0MB files=18
+20261021-212002-spark-c8-500k-51e381 ok total=44.9s etl=43.12s thr=11595.5 rss=2737.8MB files=21
+20261021-212047-spark-c8-500k-b51e48 ok total=41.115s etl=40.302s thr=12406.2 rss=2798.0MB files=21
+20261021-212129-spark-c8-500k-4e6f3d ok total=44.194s etl=42.976s thr=11634.5 rss=2678.0MB files=21
+20261021-212213-spark-c8-full-c5e777 ok total=59.793s etl=58.257s thr=16864.6 rss=2822.6MB files=23
+20261021-212314-spark-c8-full-61374b ok total=62.366s etl=60.432s thr=16257.7 rss=2858.3MB files=23
+20261021-212417-spark-c8-full-1c6565 ok total=59.063s etl=57.928s thr=16960.3 rss=2780.2MB files=23
+SUCCESS: The process with PID 22580 (child process of PID 1112) has been terminated.
+SUCCESS: The process with PID 1112 (child process of PID 22480) has been terminated.
+SUCCESS: The process with PID 22480 (child process of PID 17884) has been terminated.
