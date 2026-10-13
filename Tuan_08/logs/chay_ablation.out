@@ -1,0 +1,32 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/21 21:25:25 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in standalone/kubernetes and LOCAL_DIRS in YARN).
+breakdown {'B1_doc_parse_json': 4.243, 'B2_anh_xa_khong_kiem_trung': 27.237, 'B3_anh_xa_co_kiem_trung': 32.405}
+E0_mac_dinh 0 ok 57.512 56.412 462156469 0.6417 0.0419
+E1_tat_kiem_trung 0 ok 40.231 39.634 462194632 0.6484 0.0429
+E2_row_group_mac_dinh 0 ok 51.548 51.003 461711075 0.6363 0.0419
+E3_split_32mb 0 ok 61.807 61.086 462343776 0.6555 0.0431
+E4_snappy 0 ok 53.606 53.128 747025231 0.6003 0.0472
+E5_khong_nen 0 ok 71.345 70.522 1462791940 0.4562 0.0286
+E6_sap_xep_record_id 0 ok 51.595 51.163 470323507 0.6051 0.0219
+breakdown {'B1_doc_parse_json': 1.976, 'B2_anh_xa_khong_kiem_trung': 23.955, 'B3_anh_xa_co_kiem_trung': 30.338}
+E0_mac_dinh 1 ok 56.55 55.752 462156512 0.6496 0.0448
+E1_tat_kiem_trung 1 ok 39.628 39.108 462194632 0.6437 0.0425
+E2_row_group_mac_dinh 1 ok 52.783 52.291 461711075 0.6367 0.042
+E3_split_32mb 1 ok 60.94 60.301 462343776 0.6559 0.0426
+E4_snappy 1 ok 60.491 59.655 747025231 0.5982 0.0434
+E5_khong_nen 1 ok 58.921 57.991 1462792057 0.4464 0.0283
+E6_sap_xep_record_id 1 ok 54.677 54.173 470323507 0.5973 0.0201
+breakdown {'B1_doc_parse_json': 2.026, 'B2_anh_xa_khong_kiem_trung': 23.954, 'B3_anh_xa_co_kiem_trung': 30.337}
+E0_mac_dinh 2 ok 54.457 53.54 462156512 0.6504 0.0416
+E1_tat_kiem_trung 2 ok 39.593 39.12 462194632 0.637 0.0407
+E2_row_group_mac_dinh 2 ok 51.971 51.148 461711037 0.6601 0.0392
+E3_split_32mb 2 ok 61.832 60.92 462343776 0.6728 0.0431
+E4_snappy 2 ok 54.978 54.071 747025231 0.6003 0.0444
+E5_khong_nen 2 ok 71.446 70.525 1462792057 0.4569 0.0279
+E6_sap_xep_record_id 2 ok 56.411 55.6 470323507 0.6693 0.023
+SUCCESS: The process with PID 18080 (child process of PID 12884) has been terminated.
+SUCCESS: The process with PID 12884 (child process of PID 6728) has been terminated.
+SUCCESS: The process with PID 6728 (child process of PID 21140) has been terminated.
