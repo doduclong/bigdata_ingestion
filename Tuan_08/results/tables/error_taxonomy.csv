@@ -1,0 +1,10 @@
+flag,category,count,share_of_flag,top_subsets
+W05,W05a_ky_hieu_tien_te,23972,0.9494,orca_math:17892; synthetic_amc:2152; gsm8k:1539; cn_k12:941
+W05,W05b_dollar_thoat_\$,14412,0.5708,orca_math:12761; gsm8k:1049; synthetic_math:250; synthetic_amc:167
+W05,W05c_display_$$_le,843,0.0334,cn_k12:355; olympiads:226; synthetic_math:104; synthetic_amc:65
+W05,khong_khop_quy_tac,1010,0.04,
+W04,W04a_0x0C_ligature_fi_OT1,160,0.6015,aops_forum:160
+W04,W04b_0x0B_ligature_ff_OT1,31,0.1165,aops_forum:31
+W04,W04c_0x08_loi_escape_backslash_b(oxed),1,0.0038,cn_k12:1
+W04,W04d_ky_tu_dieu_khien_khac,97,0.3647,aops_forum:90; olympiads:3; synthetic_amc:2; cn_k12:2
+W04,khong_khop_quy_tac,0,0.0,
