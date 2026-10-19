@@ -1,0 +1,12 @@
+{
+  "leandojo_records": 122512,
+  "unbalanced_brackets": 1,
+  "unbalanced_rate": 1e-05,
+  "starts_with_decl_keyword": 122511,
+  "examples_unbalanced": [
+    [
+      "Subgroup.properlyDiscontinuousSMul_of_tendsto_cofinite",
+      "@[to_additive\n  \"A subgroup `S` of an additive topological group `G` acts on `G` properly\n  discontinuously on the left, if it is discrete in the sense that `S "
+    ]
+  ]
+}
