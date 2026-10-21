@@ -1,0 +1,22 @@
+{
+  "10k": {
+    "proofnet": 371,
+    "leandojo": 1201,
+    "numinamath": 8428
+  },
+  "100k": {
+    "proofnet": 371,
+    "leandojo": 12429,
+    "numinamath": 87200
+  },
+  "500k": {
+    "proofnet": 371,
+    "leandojo": 62328,
+    "numinamath": 437301
+  },
+  "full": {
+    "numinamath": 859594,
+    "proofnet": 371,
+    "leandojo": 122517
+  }
+}

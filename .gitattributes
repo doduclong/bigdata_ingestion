@@ -1,0 +1,7 @@
+# Giữ nguyên byte của dữ liệu mẫu/kết quả để sha256 không đổi khi checkout
+*.jsonl -text
+*.json -text
+*.sha256 -text
+*.csv -text
+**/data_sample/** -text
+*.parquet binary

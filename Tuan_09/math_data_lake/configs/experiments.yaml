@@ -1,0 +1,51 @@
+# Cấu hình các thí nghiệm đã chạy (mỗi lần chạy còn ghi đầy đủ tham số trong raw results)
+common:
+  machine: "Intel i7-12700 (12C/20T), 23.8 GB RAM, NVMe SSD, Windows 11"
+  software: {python: "3.11.0", pyspark: "4.0.1", java: "21.0.8", duckdb: "1.3.2", pyarrow: "21.0.0"}
+  memory_guard: {max_rss_mb: 3500, min_free_mb: 3000}
+  seed: "không dùng ngẫu nhiên — mẫu chọn xác định theo record_id (sha1)"
+  timeout_s: 3600
+  repeats: 3
+  data_version: "manifest/manifest_full.json (19 tệp, 2,14 GB)"
+
+scales:            # scripts/tao_scales.py — ProofNet lấy đủ, phần còn lại chia theo tỷ lệ nguồn
+  10k:  {proofnet: 371, leandojo: 1201, numinamath: 8428}
+  100k: {proofnet: 371, leandojo: 12429, numinamath: 87200}
+  500k: {proofnet: 371, leandojo: 62328, numinamath: 437301}
+  full: {proofnet: 371, leandojo: 122517, numinamath: 859594}
+
+baseline:          # tuần 3, 7
+  method: "JSONL staging -> Python 1 tiến trình -> 1 tệp JSONL, không partition, không nén"
+  queries: "Python quét tuần tự Q1–Q5; DuckDB trên JSONL Q0–Q5 (--sql)"
+
+spark_etl:         # tuần 4, 7
+  master: ["local[2]", "local[4]", "local[8]"]
+  driver_memory: 2g
+  maxPartitionBytes: 128m
+  output: "Parquet zstd, partition source/source_version, row group 16 MB"
+  check_duplicates: true
+
+storage_layouts:   # tuần 5, 8 — src/mdl/storage.py LAYOUTS
+  L0_jsonl: "1 tệp JSONL"
+  L1_parquet_flat: "không partition, ~128 MB/tệp"
+  L2_parquet_src_ver: "partition source/source_version, ~128 MB/tệp"
+  L3_parquet_src_ver_subset: "partition thêm subset"
+  L4_parquet_small_files: "maxRecordsPerFile=2000"
+  L5_parquet_compacted: "L4 + compaction major"
+  L6_parquet_src_ver_rg16: "L2 + row group 16 MB"
+  query_engine: "DuckDB 4 luồng, memory_limit 2GB, Q0–Q5"
+
+incremental:       # tuần 6
+  batch: "NuminaMath part-train-00004 (171.898 bản ghi)"
+  steps: ["v0 nạp ban đầu (trừ batch)", "v1 nạp batch", "v2 nạp lại (idempotent)"]
+  compaction: "minor, gộp tệp < 32 MB"
+
+ablation:          # tuần 8 — scripts/chay_ablation.py
+  E0_mac_dinh: {}
+  E1_tat_kiem_trung: {check_duplicates: false}
+  E2_row_group_mac_dinh: {row_group_mb: null}
+  E3_split_32mb: {spark.sql.files.maxPartitionBytes: 32m}
+  E4_snappy: {compression: snappy}
+  E5_khong_nen: {compression: none}
+  E6_sap_xep_record_id: {sort_by: record_id}
+  breakdown: "sink noop: B1 đọc+parse, B2 + ánh xạ, B3 + kiểm trùng"

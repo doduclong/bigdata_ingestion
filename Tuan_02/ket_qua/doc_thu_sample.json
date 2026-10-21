@@ -1,0 +1,75 @@
+{
+  "raw": "data_sample/raw",
+  "sources": {
+    "numinamath": {
+      "records": 497,
+      "read_errors": 0,
+      "seconds": 0.01,
+      "rss_mb_after": 57,
+      "first_keys": [
+        "_extra",
+        "_key",
+        "_raw_row",
+        "_raw_uri",
+        "_source",
+        "_source_version",
+        "_split",
+        "problem",
+        "solution",
+        "source"
+      ]
+    },
+    "proofnet": {
+      "records": 200,
+      "read_errors": 0,
+      "seconds": 0.0,
+      "rss_mb_after": 57,
+      "first_keys": [
+        "_extra",
+        "_key",
+        "_raw_row",
+        "_raw_uri",
+        "_source",
+        "_source_version",
+        "_split",
+        "formal_statement",
+        "id",
+        "nl_proof",
+        "nl_statement",
+        "src_header"
+      ]
+    },
+    "leandojo": {
+      "records": 300,
+      "read_errors": 0,
+      "seconds": 0.01,
+      "rss_mb_after": 58,
+      "first_keys": [
+        "_extra",
+        "_key",
+        "_raw_row",
+        "_raw_uri",
+        "_source",
+        "_source_version",
+        "_split",
+        "end_line",
+        "file_path",
+        "full_name",
+        "start_line",
+        "tactics"
+      ]
+    },
+    "leandojo_corpus": {
+      "records": 567,
+      "read_errors": 0,
+      "seconds": 0.0,
+      "rss_mb_after": 58,
+      "first_keys": [
+        "_raw_row",
+        "_raw_uri",
+        "imports",
+        "path"
+      ]
+    }
+  }
+}

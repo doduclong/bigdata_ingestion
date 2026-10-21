@@ -1,0 +1,17 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/21 20:21:17 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in standalone/kubernetes and LOCAL_DIRS in YARN).
+20261021-202114-spark-10k-27249d ok total=27.593s etl=22.459s thr=445.3 rss=1372.7MB files=11
+20261021-202142-spark-10k-6f82c0 ok total=16.006s etl=15.454s thr=647.1 rss=1530.5MB files=11
+20261021-202158-spark-10k-010207 ok total=15.168s etl=14.58s thr=685.9 rss=1733.2MB files=11
+20261021-202214-spark-100k-0c8cb3 ok total=22.48s etl=21.66s thr=4616.7 rss=1807.3MB files=11
+20261021-202236-spark-100k-2790cc ok total=22.384s etl=20.91s thr=4782.4 rss=1690.0MB files=11
+20261021-202259-spark-100k-4881ab ok total=21.199s etl=20.328s thr=4919.2 rss=1752.0MB files=11
+20261021-202320-spark-full-886f51 ok total=54.811s etl=53.155s thr=18483.3 rss=2701.6MB files=19
+20261021-202415-spark-full-173de2 ok total=54.442s etl=52.75s thr=18625.3 rss=2690.1MB files=19
+20261021-202510-spark-full-4aa225 ok total=54.526s etl=53.76s thr=18275.2 rss=2685.6MB files=19
+SUCCESS: The process with PID 17136 (child process of PID 24208) has been terminated.
+SUCCESS: The process with PID 24208 (child process of PID 2152) has been terminated.
+SUCCESS: The process with PID 2152 (child process of PID 24080) has been terminated.

@@ -1,0 +1,9 @@
+_storage/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+# Tài liệu của giảng viên (không phải sản phẩm của nhóm)
+HuongDan_Bai_Tap_Lon_BigData_INT4418.pdf
+Big_Data_Analytics_INT4418_AI4Math.pptx

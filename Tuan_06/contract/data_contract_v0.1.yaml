@@ -1,0 +1,263 @@
+contract: math_record
+version: '0.1'
+schema_version: '1.0'
+pipeline_version: 0.2.0
+owner: 'Nhóm 1 — Math Data Lake (liên hệ: TV1 điều phối, TV7 QA)'
+status: draft — chờ xác nhận của Nhóm 2–8 trong tuần 2
+format:
+  curated: Apache Parquet (zstd), partition source=<..>/source_version=<..>
+  sample: JSONL UTF-8 + Parquet (data_sample/curated/)
+primary_key:
+- record_id
+- source_version
+partition_columns:
+- source
+- source_version
+sources:
+  numinamath:
+    version: hf-9d8d210c
+    license: Apache-2.0
+    url: https://huggingface.co/datasets/AI-MO/NuminaMath-CoT
+  proofnet:
+    version: git-509ad797
+    license: MIT
+    url: https://github.com/zhangir-azerbayev/ProofNet
+  leandojo:
+    version: v10-29dcec07
+    license: CC-BY-2.0
+    url: https://zenodo.org/records/12740403
+fields:
+- name: record_id
+  type: string
+  nullable: false
+  description: sha1(source + '|' + source_record_key)[:20]; khóa ổn định giữa các lần chạy
+- name: source
+  type: string
+  nullable: false
+  description: numinamath | proofnet | leandojo (cột partition)
+  allowed:
+  - leandojo
+  - numinamath
+  - proofnet
+- name: source_version
+  type: string
+  nullable: false
+  description: phiên bản snapshot, khớp manifest (cột partition)
+- name: source_record_key
+  type: string
+  nullable: false
+  description: 'khóa gốc: id ProofNet / file_path::full_name / shard:row'
+- name: record_type
+  type: string
+  nullable: false
+  description: problem_solution | nl_formal_pair | formal_theorem
+  allowed:
+  - formal_theorem
+  - nl_formal_pair
+  - problem_solution
+- name: split
+  type: string
+  nullable: false
+  description: 'split gốc của nguồn: train/val/valid/test'
+- name: subset
+  type: string
+  nullable: true
+  description: nguồn con (NuminaMath), sách (ProofNet), nhóm module (LeanDojo)
+- name: nl_problem
+  type: string
+  nullable: true
+  description: đề bài / phát biểu ngôn ngữ tự nhiên (giữ nguyên LaTeX)
+- name: nl_solution
+  type: string
+  nullable: true
+  description: lời giải / chứng minh ngôn ngữ tự nhiên
+- name: formal_language
+  type: string
+  nullable: true
+  description: lean3 | lean4 | null
+  allowed:
+  - lean3
+  - lean4
+- name: formal_statement
+  type: string
+  nullable: true
+  description: phát biểu hình thức (Lean)
+- name: formal_proof
+  type: string
+  nullable: true
+  description: 'chứng minh hình thức: các tactic nối bằng xuống dòng'
+- name: formal_header
+  type: string
+  nullable: true
+  description: header/import cần để biên dịch phát biểu
+- name: formal_goal
+  type: string
+  nullable: true
+  description: goal ban đầu (state_before của tactic đầu tiên)
+- name: lean_full_name
+  type: string
+  nullable: true
+  description: tên đầy đủ của định lý Lean
+- name: lean_file_path
+  type: string
+  nullable: true
+  description: đường dẫn tệp .lean trong mathlib4
+- name: lean_start_line
+  type: int
+  nullable: true
+  description: dòng bắt đầu khai báo
+- name: lean_end_line
+  type: int
+  nullable: true
+  description: dòng kết thúc khai báo
+- name: tactics
+  type: list<string>
+  nullable: false
+  description: danh sách tactic (rỗng nếu không có)
+- name: premises
+  type: list<string>
+  nullable: false
+  description: tên premise duy nhất được dùng trong chứng minh (theo thứ tự xuất hiện)
+- name: num_tactics
+  type: int
+  nullable: false
+  description: số tactic
+- name: has_text
+  type: bool
+  nullable: false
+  description: có nl_problem hoặc nl_solution
+- name: has_latex
+  type: bool
+  nullable: false
+  description: nội dung NL chứa biểu thức LaTeX
+- name: has_lean
+  type: bool
+  nullable: false
+  description: có formal_statement
+- name: latex_count
+  type: int
+  nullable: false
+  description: số biểu thức LaTeX trong nl_problem + nl_solution
+- name: content_sha256
+  type: string
+  nullable: false
+  description: sha256 của nl_problem␟nl_solution␟formal_statement␟formal_proof
+- name: quality_flags
+  type: list<string>
+  nullable: false
+  description: cảnh báo chất lượng không chặn (W01..)
+- name: extra_json
+  type: string
+  nullable: true
+  description: trường gốc chưa ánh xạ (JSON), để không mất thông tin
+- name: raw_uri
+  type: string
+  nullable: false
+  description: đường dẫn tệp raw (tương đối với kho)
+- name: raw_row
+  type: int
+  nullable: false
+  description: chỉ số dòng/bản ghi trong tệp raw
+- name: raw_sha256
+  type: string
+  nullable: false
+  description: sha256 tệp raw, khớp manifest
+- name: license
+  type: string
+  nullable: false
+  description: SPDX id giấy phép của nguồn
+- name: source_url
+  type: string
+  nullable: false
+  description: URL trang nguồn
+- name: downloaded_at
+  type: string
+  nullable: false
+  description: thời điểm tải tệp raw (ISO-8601 UTC)
+- name: ingest_run_id
+  type: string
+  nullable: false
+  description: mã lần chạy ETL tạo ra bản ghi
+- name: pipeline_version
+  type: string
+  nullable: false
+  description: phiên bản mã pipeline
+- name: schema_version
+  type: string
+  nullable: false
+  description: phiên bản lược đồ, hiện tại 1.0
+guarantees:
+- Mọi cột provenance (source, source_version, raw_uri, raw_row, raw_sha256, license, source_url, downloaded_at,
+  ingest_run_id) khác null trên 100% bản ghi curated.
+- 'record_id ổn định: cùng (source, source_record_key) => cùng record_id ở mọi lần chạy và mọi phiên bản.'
+- Không có hai bản ghi trùng (record_id, source_version).
+- Văn bản đã chuẩn hóa Unicode NFC; LaTeX/Lean giữ nguyên văn, không sửa nội dung.
+- Split giữ nguyên theo nguồn gốc; Nhóm 1 không tự chia lại split.
+- Bản ghi vi phạm lỗi cứng (E01–E05) không vào curated mà vào bảng errors kèm mã lỗi.
+quality_flags:
+  W01_EMPTY_NL_SOLUTION: cặp NL-formal không có chứng minh NL
+  W02_FORMAL_STATEMENT_MISSING: định lý LeanDojo không join được với corpus
+  W03_REPLACEMENT_CHAR: có ký tự U+FFFD (mất mã hóa ở nguồn)
+  W04_CONTROL_CHAR: có ký tự điều khiển
+  W05_UNBALANCED_DOLLAR: số dấu $ lẻ (LaTeX có thể hỏng hoặc là ký hiệu tiền)
+  W06_VERY_LONG: trường văn bản dài hơn 50.000 ký tự
+error_codes:
+  E01_MISSING_REQUIRED: thiếu cột bắt buộc
+  E02_BAD_ENUM: giá trị ngoài miền cho phép
+  E03_EMPTY_CONTENT: thiếu nội dung tối thiểu theo record_type
+  E05_PARSE: dòng staging không phải JSON hợp lệ
+  E06_DUPLICATE_KEY: trùng (record_id, source_version) trong một lần nạp
+versioning:
+  minor: thêm cột nullable => tăng schema_version x.y+1, không phá vỡ consumer
+  major: đổi tên/xóa/đổi kiểu cột => x+1.0, báo trước 1 tuần, giữ bản cũ song song 1 tuần
+  data: snapshot mới => source_version mới, partition mới; bản cũ không bị ghi đè
+consumers:
+  nhom_2_quality:
+  - record_id
+  - source
+  - split
+  - nl_problem
+  - nl_solution
+  - formal_statement
+  - content_sha256
+  - raw_uri
+  - raw_row
+  nhom_3_4_retrieval:
+  - record_id
+  - lean_full_name
+  - lean_file_path
+  - formal_statement
+  - formal_goal
+  - premises
+  - split
+  - extra_json.split_novel_premises
+  nhom_5_autoformalization:
+  - record_id
+  - source
+  - nl_problem
+  - formal_statement
+  - formal_language
+  - formal_header
+  - split
+  nhom_6_repair:
+  - record_id
+  - formal_statement
+  - formal_header
+  - formal_language
+  nhom_7_proof_search:
+  - record_id
+  - lean_full_name
+  - tactics
+  - formal_goal
+  - num_tactics
+  - premises
+  nhom_8_tutor:
+  - record_id
+  - subset
+  - nl_problem
+  - nl_solution
+  - has_latex
+access:
+  sample: Tuan_02/data_sample/curated/math_record_sample.parquet (mock input, 997 bản ghi)
+  duckdb_example: SELECT source, count(*) FROM read_parquet('…/source=*/source_version=*/*.parquet', hive_partitioning=true)
+    GROUP BY 1

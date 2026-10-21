@@ -1,0 +1,80 @@
+
+==============================================================================
+[   0.0s] 1. Raw mẫu -> staging JSONL (chuẩn hóa NFC, con trỏ raw)
+==============================================================================
+  numinamath         {'rows': 497, 'bytes': 965560, 'seconds': 0.02}
+  proofnet           {'rows': 200, 'bytes': 320210, 'seconds': 0.01}
+  leandojo           {'rows': 300, 'bytes': 638739, 'seconds': 0.02}
+  leandojo_corpus    {'premises': 300, 'files': 267, 'bytes': 206471, 'seconds': 0.01}
+
+==============================================================================
+[   0.1s] 2. Nạp kho Parquet: v0 ban đầu -> v1 batch NuminaMath mới -> v2 nạp lại cùng batch
+==============================================================================
+  v0 ban đầu                 mới= 520  không đổi=   0  xung đột=0  tệp thêm=5  (14.561 s)
+  v1 batch mới               mới= 477  không đổi=   0  xung đột=0  tệp thêm=1  (6.358 s)
+  v2 nạp lại (idempotent)    mới=   0  không đổi= 477  xung đột=0  tệp thêm=0  (5.949 s)
+
+==============================================================================
+[  31.0s] 3. Catalog (trích) và truy vấn cho các nhóm khác
+==============================================================================
+# Catalog — kho Math Data Lake (sinh tự động lúc 2026-10-21T15:26:46+00:00)
+
+Bảng `math_record`: 997 bản ghi, 0.5 MB, định dạng parquet (zstd, row group 16 MB), partition `source/source_version`, khóa `record_id, source_version`, lược đồ 1.0, pipeline 1.0.0-rc1.
+
+## Partition
+
+| Nguồn | Phiên bản | Split | Bản ghi | Tệp | MB | Giấy phép |
+|---|---|---|---|---|---|---|
+| leandojo | v10-29dcec07 | test,train,val | 300 | 1 | 0.1 | CC-BY-2.0 |
+| numinamath | hf-9d8d210c | test,train | 497 | 1 | 0.3 | Apache-2.0 |
+| proofnet | git-509ad797 | test,valid | 200 | 1 | 0.1 | MIT |
+
+## Lịch sử nạp (_lake_log)
+
+| v | Batch | Thời điểm (UTC) | Mới | Không đổi | Xung đột | Tệp thêm | Tổng (s) |
+|---|---|---|---|---|---|---|---|
+| 0 | v0 ban đầu | 2026-10-21T15:26:33+00:00 | 520 | 0 | 0 | 5 | 14.561 |
+| 1 | v1 batch mới | 2026-10-21T15:26:40+00:00 | 477 | 0 | 0 | 1 | 6.358 |
+| 2 | v2 nạp lại (idempotent) | 2026-10-21T15:26:45+00:00 | 0 | 477 | 0 | 0 | 5.949 |
+
+
+-- Nhóm 3/4 (truy hồi premise): định lý Lean 4 nhiều premise nhất
+┌──────────────────────────────────────────┬───────────┬───────────────────────────────────────────────────────────────┐
+│              lean_full_name              │ n_premise │                             stmt                              │
+│                 varchar                  │   int64   │                            varchar                            │
+├──────────────────────────────────────────┼───────────┼───────────────────────────────────────────────────────────────┤
+│ exists_setIndependent_isCompl_sSup_atoms │        41 │ theorem exists_setIndependent_isCompl_sSup_atoms (h : sSup {  │
+│ GeneralizedContinuedFraction.fib_le_of…  │        28 │ theorem fib_le_of_continuantsAux_b :\n    n ≤ 1 ∨ ¬(of v).Ter │
+│ affineIndependent_iff_indicator_eq_of_…  │        27 │ theorem affineIndependent_iff_indicator_eq_of_affineCombinat  │
+└──────────────────────────────────────────┴───────────┴───────────────────────────────────────────────────────────────┘
+
+-- Nhóm 5 (autoformalization): cặp NL–Lean 3 của ProofNet
+┌──────────┬────────────────────────────────────────────────────┬──────────────────────────────────────────┐
+│  subset  │                         nl                         │                   lean                   │
+│ varchar  │                      varchar                       │                 varchar                  │
+├──────────┼────────────────────────────────────────────────────┼──────────────────────────────────────────┤
+│ Herstein │ If $G$ is a nonabelian group of order 6, prove tha │ theorem exercise_2_5_37 (G : Type*) [gro │
+│ Axler    │ Suppose $\left(e_{1}, \ldots, e_{m}\right)$ is an  │ theorem exercise_6_13 {V : Type*} [inner │
+│ Artin    │ Prove that no group of order $p q$, where $p$ and  │ theorem exercise_6_4_2 {G : Type*} [grou │
+└──────────┴────────────────────────────────────────────────────┴──────────────────────────────────────────┘
+
+-- Nhóm 2 (chất lượng): cờ cảnh báo theo nguồn
+┌────────────┬───────────────────────┬───────┐
+│   source   │           f           │   n   │
+│  varchar   │        varchar        │ int64 │
+├────────────┼───────────────────────┼───────┤
+│ numinamath │ W04_CONTROL_CHAR      │     1 │
+│ numinamath │ W05_UNBALANCED_DOLLAR │    22 │
+└────────────┴───────────────────────┴───────┘
+
+
+==============================================================================
+[  31.1s] 4. Truy vết provenance: record_id -> đúng bản ghi trong tệp raw (kiểm nội dung)
+==============================================================================
+  00aadbb04921ad648039 leandojo   raw/leandojo/leandojo_benchmark_4/random/train.json#25875   license=CC-BY-2.0  trường khớp=['lean_full_name', 'lean_file_path', 'lean_start_line', 'num_tactics'] lệch=[]
+  0012bb06a4c346356c6d numinamath raw/numinamath/train-00000-of-00005.parquet#118306  license=Apache-2.0 trường khớp=['nl_problem', 'nl_solution', 'subset'] lệch=[]
+  04c45147d0893313d982 proofnet   raw/proofnet/valid.jsonl#111     license=MIT        trường khớp=['source_record_key', 'nl_problem', 'formal_statement'] lệch=[]
+
+==============================================================================
+[  31.1s] Xong. Kho demo: D:\Study\thsHTTT\bigdata\_storage\demo\lake
+==============================================================================

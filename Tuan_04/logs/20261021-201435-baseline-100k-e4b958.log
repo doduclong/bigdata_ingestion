@@ -1,0 +1,253 @@
+{
+ "metrics": {
+  "runtime_s": 7.499,
+  "peak_rss_mb": 210.2,
+  "read_bytes": 267007531,
+  "write_bytes": 249260934,
+  "status": "ok",
+  "records_in": 100000,
+  "records_out": 100000,
+  "records_error": 0,
+  "read_errors": 0,
+  "schema_error_rate": 0.0,
+  "per_source": {
+   "numinamath": 87200,
+   "proofnet": 371,
+   "leandojo": 12429
+  },
+  "error_codes": {},
+  "quality_flags": {
+   "W05_UNBALANCED_DOLLAR": 2547,
+   "W04_CONTROL_CHAR": 26,
+   "W01_EMPTY_NL_SOLUTION": 2
+  },
+  "lookup_load_s": 0.729,
+  "elapsed_s": 7.453,
+  "throughput_rps": 13417.4,
+  "bytes_in": 267007531,
+  "bytes_out": 249260934,
+  "files_out": 3,
+  "query_total_s": 5.3807,
+  "queries": {
+   "Q1_count_by_source_split": {
+    "seconds": 1.0633,
+    "rows": 7
+   },
+   "Q2_olympiad_latex": {
+    "seconds": 1.0502,
+    "rows": 1
+   },
+   "Q3_point_lookup": {
+    "seconds": 1.0433,
+    "rows": 18
+   },
+   "Q4_top_premises": {
+    "seconds": 1.0632,
+    "rows": 10
+   },
+   "Q5_provenance_audit": {
+    "seconds": 1.1607,
+    "rows": 3
+   }
+  }
+ },
+ "query_results": {
+  "Q1_count_by_source_split": [
+   [
+    "leandojo",
+    "test",
+    201
+   ],
+   [
+    "leandojo",
+    "train",
+    12021
+   ],
+   [
+    "leandojo",
+    "val",
+    207
+   ],
+   [
+    "numinamath",
+    "test",
+    15
+   ],
+   [
+    "numinamath",
+    "train",
+    87185
+   ],
+   [
+    "proofnet",
+    "test",
+    186
+   ],
+   [
+    "proofnet",
+    "valid",
+    185
+   ]
+  ],
+  "Q2_olympiad_latex": [
+   [
+    15177,
+    277.18
+   ]
+  ],
+  "Q3_point_lookup": [
+   [
+    "00000378dc968485995d",
+    "numinamath",
+    "701a4c2175b2748bf67d94e3908ee8db642107f9126a62d289d040aa9490a1aa"
+   ],
+   [
+    "0000071460e6c9efef97",
+    "numinamath",
+    "b38dcd24b8a231a6fe377caca1e439d72ae2a31b49de63792108718939413e24"
+   ],
+   [
+    "00000e47bd4d534c5081",
+    "numinamath",
+    "6154a9d2ff7975b4fa5171070901eeddbc943a28f9eb29b3008947ba412a4986"
+   ],
+   [
+    "00001293dcf031631eab",
+    "numinamath",
+    "790b8402f2ccf8cf6a1536f51d173b4280901d962786a60c4b2fe3e75aba2d84"
+   ],
+   [
+    "00003865ef5fe53b6e45",
+    "numinamath",
+    "00502f25978f518b1fbfc55a0a7a6622630a673bbb83b2905d0e17fc08b3813c"
+   ],
+   [
+    "000049356b8482a0cdb0",
+    "numinamath",
+    "fd281b2bbb625ef4a960356cdd8ce7a154bdeada9a581c24c391020d9e7d2c9f"
+   ],
+   [
+    "00018520409e86e28a2b",
+    "leandojo",
+    "b6ad2d1f0e6d4c69583eb12c8de511b4342415f62e1b7bd76c5eba3c82e34873"
+   ],
+   [
+    "00027534e2249bc74d37",
+    "leandojo",
+    "15be0c5b3c1703e111099a13da43efa7aec877719cb645e276a0dc9326fed39a"
+   ],
+   [
+    "0002a2472e175574938e",
+    "leandojo",
+    "c3dd9d1b41b18853362a57050fd0851739b4bf86110727a00dbff24a852112c9"
+   ],
+   [
+    "0003228783cc2669ceda",
+    "leandojo",
+    "187a95c8b0ed07f7e2f8f05f25e478affcd56c443f5bd4451e8adbc8becf45c5"
+   ],
+   [
+    "00044b5795221b684e9c",
+    "leandojo",
+    "b3d4c31379806f69ab0859aadd5f75286fdaad9860263eee113d084c18dc143f"
+   ],
+   [
+    "00046581843adea52aa7",
+    "leandojo",
+    "d36a5ec78a69e85a196fe5560d4aaa87dcdf036c77d0aa51b83debf506be1486"
+   ],
+   [
+    "0004872886af7aaf3409",
+    "leandojo",
+    "8aee6817afc3f53bfc68f367184a1a326dc10f6f15a1fc522a716625ae7f7849"
+   ],
+   [
+    "0004f750fac12155c4ac",
+    "leandojo",
+    "b6450e02411cc63df40c06606cb75d89793f65ed052467907f018068621f91b7"
+   ],
+   [
+    "00f6e184715f8cd8dbe9",
+    "proofnet",
+    "2e83e3e370d91e0a1953f14d25c9f69cedf5963aba5e3b8f53a6d148208ba902"
+   ],
+   [
+    "017ddedcd6d72171e6a1",
+    "proofnet",
+    "3f1c53619ea78e2eae99e08239fc3646f5fbffcc96a69cf1a59e1307774b1709"
+   ],
+   [
+    "022711ce8231aad98ca9",
+    "proofnet",
+    "6ac8c0cca6efafc12a61edf532ecb1ca2d546ee55832dee04ced6209cfce4eb5"
+   ],
+   [
+    "037a481dd19de71ea3e3",
+    "proofnet",
+    "f0eeab530d4cafdbec60ba2a339179511b656e6310b8bc93471d7e37b6347e03"
+   ]
+  ],
+  "Q4_top_premises": [
+   [
+    "rfl",
+    283
+   ],
+   [
+    "Eq.symm",
+    157
+   ],
+   [
+    "mul_assoc",
+    147
+   ],
+   [
+    "mul_comm",
+    141
+   ],
+   [
+    "mul_one",
+    129
+   ],
+   [
+    "add_comm",
+    114
+   ],
+   [
+    "one_mul",
+    100
+   ],
+   [
+    "le_antisymm",
+    89
+   ],
+   [
+    "MulZeroClass.mul_zero",
+    78
+   ],
+   [
+    "CategoryTheory.Category.assoc",
+    76
+   ]
+  ],
+  "Q5_provenance_audit": [
+   [
+    "leandojo",
+    "CC-BY-2.0",
+    true,
+    12429
+   ],
+   [
+    "numinamath",
+    "Apache-2.0",
+    true,
+    87200
+   ],
+   [
+    "proofnet",
+    "MIT",
+    true,
+    371
+   ]
+  ]
+ }
+}

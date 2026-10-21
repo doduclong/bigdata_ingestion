@@ -1,0 +1,5 @@
+giai_doan,giay,ty_le
+Đọc + parse JSON,2.03,0.036
+"Ánh xạ, regex, join corpus",21.93,0.393
+Kiểm tra trùng khóa,6.38,0.114
+Ghi Parquet zstd (+ quét lại),25.41,0.456

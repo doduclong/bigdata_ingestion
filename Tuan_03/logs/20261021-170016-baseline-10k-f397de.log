@@ -1,0 +1,157 @@
+{
+ "metrics": {
+  "runtime_s": 1.596,
+  "peak_rss_mb": 186.8,
+  "read_bytes": 99780533,
+  "write_bytes": 24775352,
+  "status": "ok",
+  "records_in": 10000,
+  "records_out": 10000,
+  "records_error": 0,
+  "read_errors": 0,
+  "schema_error_rate": 0.0,
+  "per_source": {
+   "numinamath": 8428,
+   "proofnet": 371,
+   "leandojo": 1201
+  },
+  "error_codes": {},
+  "quality_flags": {
+   "W05_UNBALANCED_DOLLAR": 249,
+   "W04_CONTROL_CHAR": 2,
+   "W01_EMPTY_NL_SOLUTION": 2
+  },
+  "lookup_load_s": 0.807,
+  "elapsed_s": 1.538,
+  "throughput_rps": 6500.0,
+  "bytes_in": 99780533,
+  "bytes_out": 24775352,
+  "files_out": 3,
+  "query_total_s": 0.5417,
+  "queries": {
+   "Q1_count_by_source_split": {
+    "seconds": 0.1002,
+    "rows": 6
+   },
+   "Q2_olympiad_latex": {
+    "seconds": 0.1068,
+    "rows": 1
+   },
+   "Q3_point_lookup": {
+    "seconds": 0.1074,
+    "rows": 0
+   },
+   "Q4_top_premises": {
+    "seconds": 0.1095,
+    "rows": 10
+   },
+   "Q5_provenance_audit": {
+    "seconds": 0.1178,
+    "rows": 3
+   }
+  }
+ },
+ "query_results": {
+  "Q1_count_by_source_split": [
+   [
+    "leandojo",
+    "test",
+    19
+   ],
+   [
+    "leandojo",
+    "train",
+    1163
+   ],
+   [
+    "leandojo",
+    "val",
+    19
+   ],
+   [
+    "numinamath",
+    "train",
+    8428
+   ],
+   [
+    "proofnet",
+    "test",
+    186
+   ],
+   [
+    "proofnet",
+    "valid",
+    185
+   ]
+  ],
+  "Q2_olympiad_latex": [
+   [
+    1434,
+    282.72
+   ]
+  ],
+  "Q3_point_lookup": [],
+  "Q4_top_premises": [
+   [
+    "rfl",
+    26
+   ],
+   [
+    "add_comm",
+    16
+   ],
+   [
+    "Eq.symm",
+    14
+   ],
+   [
+    "mul_comm",
+    13
+   ],
+   [
+    "mul_assoc",
+    11
+   ],
+   [
+    "mul_one",
+    11
+   ],
+   [
+    "LE.le.trans",
+    8
+   ],
+   [
+    "div_eq_mul_inv",
+    8
+   ],
+   [
+    "if_pos",
+    8
+   ],
+   [
+    "one_mul",
+    8
+   ]
+  ],
+  "Q5_provenance_audit": [
+   [
+    "leandojo",
+    "CC-BY-2.0",
+    true,
+    1201
+   ],
+   [
+    "numinamath",
+    "Apache-2.0",
+    true,
+    8428
+   ],
+   [
+    "proofnet",
+    "MIT",
+    true,
+    371
+   ]
+  ]
+ }
+}

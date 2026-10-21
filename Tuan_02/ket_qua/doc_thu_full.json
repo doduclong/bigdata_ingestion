@@ -1,0 +1,75 @@
+{
+  "raw": "../_storage/raw",
+  "sources": {
+    "numinamath": {
+      "records": 859594,
+      "read_errors": 0,
+      "seconds": 15.0,
+      "rss_mb_after": 191,
+      "first_keys": [
+        "_extra",
+        "_key",
+        "_raw_row",
+        "_raw_uri",
+        "_source",
+        "_source_version",
+        "_split",
+        "problem",
+        "solution",
+        "source"
+      ]
+    },
+    "proofnet": {
+      "records": 371,
+      "read_errors": 0,
+      "seconds": 0.0,
+      "rss_mb_after": 191,
+      "first_keys": [
+        "_extra",
+        "_key",
+        "_raw_row",
+        "_raw_uri",
+        "_source",
+        "_source_version",
+        "_split",
+        "formal_statement",
+        "id",
+        "nl_proof",
+        "nl_statement",
+        "src_header"
+      ]
+    },
+    "leandojo": {
+      "records": 122517,
+      "read_errors": 0,
+      "seconds": 7.96,
+      "rss_mb_after": 205,
+      "first_keys": [
+        "_extra",
+        "_key",
+        "_raw_row",
+        "_raw_uri",
+        "_source",
+        "_source_version",
+        "_split",
+        "end_line",
+        "file_path",
+        "full_name",
+        "start_line",
+        "tactics"
+      ]
+    },
+    "leandojo_corpus": {
+      "records": 186647,
+      "read_errors": 0,
+      "seconds": 0.64,
+      "rss_mb_after": 204,
+      "first_keys": [
+        "_raw_row",
+        "_raw_uri",
+        "imports",
+        "path"
+      ]
+    }
+  }
+}

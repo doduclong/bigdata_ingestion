@@ -1,0 +1,607 @@
+{
+ "catalog_version": "1",
+ "generated_at": "2026-10-21T13:47:35+00:00",
+ "lake": "D:\\Study\\thsHTTT\\bigdata\\_storage\\lake_w6",
+ "tables": [
+  {
+   "name": "math_record",
+   "location": "math_record/",
+   "format": "parquet (zstd, row group 16 MB)",
+   "partition_columns": [
+    "source",
+    "source_version"
+   ],
+   "primary_key": [
+    "record_id",
+    "source_version"
+   ],
+   "schema_version": "1.0",
+   "pipeline_version": "0.3.0",
+   "rows": 982477,
+   "bytes": 462654933,
+   "columns": [
+    {
+     "name": "record_id",
+     "type": "string",
+     "nullable": false,
+     "description": "sha1(source + '|' + source_record_key)[:20]; khóa ổn định giữa các lần chạy"
+    },
+    {
+     "name": "source",
+     "type": "string",
+     "nullable": false,
+     "description": "numinamath | proofnet | leandojo (cột partition)"
+    },
+    {
+     "name": "source_version",
+     "type": "string",
+     "nullable": false,
+     "description": "phiên bản snapshot, khớp manifest (cột partition)"
+    },
+    {
+     "name": "source_record_key",
+     "type": "string",
+     "nullable": false,
+     "description": "khóa gốc: id ProofNet / file_path::full_name / shard:row"
+    },
+    {
+     "name": "record_type",
+     "type": "string",
+     "nullable": false,
+     "description": "problem_solution | nl_formal_pair | formal_theorem"
+    },
+    {
+     "name": "split",
+     "type": "string",
+     "nullable": false,
+     "description": "split gốc của nguồn: train/val/valid/test"
+    },
+    {
+     "name": "subset",
+     "type": "string",
+     "nullable": true,
+     "description": "nguồn con (NuminaMath), sách (ProofNet), nhóm module (LeanDojo)"
+    },
+    {
+     "name": "nl_problem",
+     "type": "string",
+     "nullable": true,
+     "description": "đề bài / phát biểu ngôn ngữ tự nhiên (giữ nguyên LaTeX)"
+    },
+    {
+     "name": "nl_solution",
+     "type": "string",
+     "nullable": true,
+     "description": "lời giải / chứng minh ngôn ngữ tự nhiên"
+    },
+    {
+     "name": "formal_language",
+     "type": "string",
+     "nullable": true,
+     "description": "lean3 | lean4 | null"
+    },
+    {
+     "name": "formal_statement",
+     "type": "string",
+     "nullable": true,
+     "description": "phát biểu hình thức (Lean)"
+    },
+    {
+     "name": "formal_proof",
+     "type": "string",
+     "nullable": true,
+     "description": "chứng minh hình thức: các tactic nối bằng xuống dòng"
+    },
+    {
+     "name": "formal_header",
+     "type": "string",
+     "nullable": true,
+     "description": "header/import cần để biên dịch phát biểu"
+    },
+    {
+     "name": "formal_goal",
+     "type": "string",
+     "nullable": true,
+     "description": "goal ban đầu (state_before của tactic đầu tiên)"
+    },
+    {
+     "name": "lean_full_name",
+     "type": "string",
+     "nullable": true,
+     "description": "tên đầy đủ của định lý Lean"
+    },
+    {
+     "name": "lean_file_path",
+     "type": "string",
+     "nullable": true,
+     "description": "đường dẫn tệp .lean trong mathlib4"
+    },
+    {
+     "name": "lean_start_line",
+     "type": "int",
+     "nullable": true,
+     "description": "dòng bắt đầu khai báo"
+    },
+    {
+     "name": "lean_end_line",
+     "type": "int",
+     "nullable": true,
+     "description": "dòng kết thúc khai báo"
+    },
+    {
+     "name": "tactics",
+     "type": "list<string>",
+     "nullable": false,
+     "description": "danh sách tactic (rỗng nếu không có)"
+    },
+    {
+     "name": "premises",
+     "type": "list<string>",
+     "nullable": false,
+     "description": "tên premise duy nhất được dùng trong chứng minh (theo thứ tự xuất hiện)"
+    },
+    {
+     "name": "num_tactics",
+     "type": "int",
+     "nullable": false,
+     "description": "số tactic"
+    },
+    {
+     "name": "has_text",
+     "type": "bool",
+     "nullable": false,
+     "description": "có nl_problem hoặc nl_solution"
+    },
+    {
+     "name": "has_latex",
+     "type": "bool",
+     "nullable": false,
+     "description": "nội dung NL chứa biểu thức LaTeX"
+    },
+    {
+     "name": "has_lean",
+     "type": "bool",
+     "nullable": false,
+     "description": "có formal_statement"
+    },
+    {
+     "name": "latex_count",
+     "type": "int",
+     "nullable": false,
+     "description": "số biểu thức LaTeX trong nl_problem + nl_solution"
+    },
+    {
+     "name": "content_sha256",
+     "type": "string",
+     "nullable": false,
+     "description": "sha256 của nl_problem␟nl_solution␟formal_statement␟formal_proof"
+    },
+    {
+     "name": "quality_flags",
+     "type": "list<string>",
+     "nullable": false,
+     "description": "cảnh báo chất lượng không chặn (W01..)"
+    },
+    {
+     "name": "extra_json",
+     "type": "string",
+     "nullable": true,
+     "description": "trường gốc chưa ánh xạ (JSON), để không mất thông tin"
+    },
+    {
+     "name": "raw_uri",
+     "type": "string",
+     "nullable": false,
+     "description": "đường dẫn tệp raw (tương đối với kho)"
+    },
+    {
+     "name": "raw_row",
+     "type": "int",
+     "nullable": false,
+     "description": "chỉ số dòng/bản ghi trong tệp raw"
+    },
+    {
+     "name": "raw_sha256",
+     "type": "string",
+     "nullable": false,
+     "description": "sha256 tệp raw, khớp manifest"
+    },
+    {
+     "name": "license",
+     "type": "string",
+     "nullable": false,
+     "description": "SPDX id giấy phép của nguồn"
+    },
+    {
+     "name": "source_url",
+     "type": "string",
+     "nullable": false,
+     "description": "URL trang nguồn"
+    },
+    {
+     "name": "downloaded_at",
+     "type": "string",
+     "nullable": false,
+     "description": "thời điểm tải tệp raw (ISO-8601 UTC)"
+    },
+    {
+     "name": "ingest_run_id",
+     "type": "string",
+     "nullable": false,
+     "description": "mã lần chạy ETL tạo ra bản ghi"
+    },
+    {
+     "name": "pipeline_version",
+     "type": "string",
+     "nullable": false,
+     "description": "phiên bản mã pipeline"
+    },
+    {
+     "name": "schema_version",
+     "type": "string",
+     "nullable": false,
+     "description": "phiên bản lược đồ, hiện tại 1.0"
+    }
+   ],
+   "partitions": [
+    {
+     "source": "leandojo",
+     "source_version": "v10-29dcec07",
+     "path": "math_record/source=leandojo/source_version=v10-29dcec07",
+     "rows": 122512,
+     "splits": "test,train,val",
+     "files": 1,
+     "bytes": 28255780,
+     "license": "CC-BY-2.0",
+     "source_url": "https://zenodo.org/records/12740403"
+    },
+    {
+     "source": "numinamath",
+     "source_version": "hf-9d8d210c",
+     "path": "math_record/source=numinamath/source_version=hf-9d8d210c",
+     "rows": 859594,
+     "splits": "test,train",
+     "files": 10,
+     "bytes": 434241470,
+     "license": "Apache-2.0",
+     "source_url": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT"
+    },
+    {
+     "source": "proofnet",
+     "source_version": "git-509ad797",
+     "path": "math_record/source=proofnet/source_version=git-509ad797",
+     "rows": 371,
+     "splits": "test,valid",
+     "files": 1,
+     "bytes": 157683,
+     "license": "MIT",
+     "source_url": "https://github.com/zhangir-azerbayev/ProofNet"
+    }
+   ],
+   "quality_flags": [
+    {
+     "source": "numinamath",
+     "flag": "W03_REPLACEMENT_CHAR",
+     "count": 5
+    },
+    {
+     "source": "numinamath",
+     "flag": "W04_CONTROL_CHAR",
+     "count": 266
+    },
+    {
+     "source": "numinamath",
+     "flag": "W05_UNBALANCED_DOLLAR",
+     "count": 25249
+    },
+    {
+     "source": "proofnet",
+     "flag": "W01_EMPTY_NL_SOLUTION",
+     "count": 2
+    }
+   ],
+   "errors": [
+    {
+     "source": "leandojo",
+     "code": "E03_EMPTY_CONTENT",
+     "count": 5
+    },
+    {
+     "source": "leandojo",
+     "code": "E06_DUPLICATE_KEY",
+     "count": 3
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/test-00000-of-00001.parquet",
+   "sha256": "62f94a9529fadf5fa08711ac932205eb4ee9fe57320052c8bb6a61ba0759d731",
+   "bytes": 165933,
+   "license": "Apache-2.0",
+   "version": "hf-9d8d210c",
+   "downloaded_at": "2026-10-21T09:36:25+00:00"
+  },
+  {
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00000-of-00005.parquet",
+   "sha256": "25c0fa2ca96dd8078470ad1bbc439d0d211fd8b7d22e04abf7f61e9be9bf9ec3",
+   "bytes": 246635854,
+   "license": "Apache-2.0",
+   "version": "hf-9d8d210c",
+   "downloaded_at": "2026-10-21T09:36:34+00:00"
+  },
+  {
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00001-of-00005.parquet",
+   "sha256": "2d4ba17018b6563728e0a92b38ee965479476cc41975923c224391e90b436236",
+   "bytes": 246936512,
+   "license": "Apache-2.0",
+   "version": "hf-9d8d210c",
+   "downloaded_at": "2026-10-21T09:36:43+00:00"
+  },
+  {
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00002-of-00005.parquet",
+   "sha256": "c607c18379548f4fda05981f871518adf2506adc870825f5ccbf91a1fbb38183",
+   "bytes": 246784426,
+   "license": "Apache-2.0",
+   "version": "hf-9d8d210c",
+   "downloaded_at": "2026-10-21T09:36:52+00:00"
+  },
+  {
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00003-of-00005.parquet",
+   "sha256": "e07293604d1ae0d16dc2708c9c51205760a0253c999e1a5a2ffd971474b3c06d",
+   "bytes": 246896920,
+   "license": "Apache-2.0",
+   "version": "hf-9d8d210c",
+   "downloaded_at": "2026-10-21T09:37:01+00:00"
+  },
+  {
+   "source": "numinamath",
+   "raw_uri": "raw/numinamath/train-00004-of-00005.parquet",
+   "sha256": "e3929523d643d93c705444c349b3cc6467cfd27ce8fe502211279889d9b753b9",
+   "bytes": 246931989,
+   "license": "Apache-2.0",
+   "version": "hf-9d8d210c",
+   "downloaded_at": "2026-10-21T09:37:11+00:00"
+  },
+  {
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/valid.jsonl",
+   "sha256": "3bfbebfc1f279d16747a8ac89196910bde1a2781edcaa4ea3b1bdc64eb9fe50b",
+   "bytes": 259368,
+   "license": "MIT",
+   "version": "git-509ad797",
+   "downloaded_at": "2026-10-21T09:37:13+00:00"
+  },
+  {
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/test.jsonl",
+   "sha256": "4eae0ba4a6503d6828afb63b4936f9913cce299ef81a17c372e1b75b56187177",
+   "bytes": 279916,
+   "license": "MIT",
+   "version": "git-509ad797",
+   "downloaded_at": "2026-10-21T09:37:12+00:00"
+  },
+  {
+   "source": "proofnet",
+   "raw_uri": "raw/proofnet/LICENSE",
+   "sha256": "01846beaa8adeceed591e968f4a878cc61eaafe2ccebad87c481c76fd43e83e2",
+   "bytes": 1074,
+   "license": "MIT",
+   "version": "git-509ad797",
+   "downloaded_at": "2026-10-21T09:37:13+00:00"
+  },
+  {
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4.tar.gz",
+   "sha256": "19b9a31968229d5bae4b959be9351d92740643d16a58c7f58f6d82795b8a98a4",
+   "bytes": 68141936,
+   "license": "CC-BY-2.0",
+   "version": "v10-29dcec07",
+   "downloaded_at": "2026-10-21T09:40:08+00:00"
+  },
+  {
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/metadata.json",
+   "sha256": "a397544ea1bcec9d25fa8797fea0387314ec77f74e34610e9d5017dc3fec4a73",
+   "bytes": 244,
+   "license": "CC-BY-2.0",
+   "version": "v10-29dcec07",
+   "downloaded_at": "2026-10-21T09:40:08+00:00"
+  },
+  {
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/corpus.jsonl",
+   "sha256": "5d9f7d8321fc01380003860acc2a3ea5ffbe2f956c45a574aa29f7bb38d2ccd5",
+   "bytes": 60420959,
+   "license": "CC-BY-2.0",
+   "version": "v10-29dcec07",
+   "downloaded_at": "2026-10-21T09:40:08+00:00"
+  },
+  {
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/licenses/README.md",
+   "sha256": "4031ab4528f0bc042344fe5d68568080dd56e989ede81b9ae15e3258334bd849",
+   "bytes": 173,
+   "license": "CC-BY-2.0",
+   "version": "v10-29dcec07",
+   "downloaded_at": "2026-10-21T09:40:08+00:00"
+  },
+  {
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   "sha256": "eef6fb1382095ab4c28d4a0b0e2b5999a96cbef454dcf2899776957e83a40c1a",
+   "bytes": 373077058,
+   "license": "CC-BY-2.0",
+   "version": "v10-29dcec07",
+   "downloaded_at": "2026-10-21T09:40:08+00:00"
+  },
+  {
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/val.json",
+   "sha256": "8ef9d5fbc1c6c8293e77a655fb888b687da804f1da9e02d6714569c49e905c70",
+   "bytes": 6456932,
+   "license": "CC-BY-2.0",
+   "version": "v10-29dcec07",
+   "downloaded_at": "2026-10-21T09:40:08+00:00"
+  },
+  {
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/random/test.json",
+   "sha256": "9f84ac4cbd5ea9031ab335d172e7a5b1873e4ac773721e60cb1a4cc5b4e2a0ae",
+   "bytes": 7129686,
+   "license": "CC-BY-2.0",
+   "version": "v10-29dcec07",
+   "downloaded_at": "2026-10-21T09:40:08+00:00"
+  },
+  {
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/novel_premises/train.json",
+   "sha256": "b092fd3a4bf117abfb33caeeaa0ef12317ed9142827294a292314e9469800fe6",
+   "bytes": 364899019,
+   "license": "CC-BY-2.0",
+   "version": "v10-29dcec07",
+   "downloaded_at": "2026-10-21T09:40:08+00:00"
+  },
+  {
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/novel_premises/val.json",
+   "sha256": "ac1ea13995be17553e56bbf60d088c9e9ddf13c2045dade2c8474c1a44c983cf",
+   "bytes": 10314569,
+   "license": "CC-BY-2.0",
+   "version": "v10-29dcec07",
+   "downloaded_at": "2026-10-21T09:40:08+00:00"
+  },
+  {
+   "source": "leandojo",
+   "raw_uri": "raw/leandojo/leandojo_benchmark_4/novel_premises/test.json",
+   "sha256": "6c001d1cacd141a4301965fa03cb3c756c19aa09fb30daf9cb2ccb48396ff3fe",
+   "bytes": 11450088,
+   "license": "CC-BY-2.0",
+   "version": "v10-29dcec07",
+   "downloaded_at": "2026-10-21T09:40:08+00:00"
+  }
+ ],
+ "history": [
+  {
+   "version": 0,
+   "run_id": "ingest-20261021204536-6a51ba",
+   "batch": "v0 nạp ban đầu (trừ NuminaMath shard 4)",
+   "committed_at": "2026-10-21T13:46:30+00:00",
+   "operation": "append",
+   "staging": "D:\\Study\\thsHTTT\\bigdata\\_storage\\staging_w6_initial",
+   "partitions": {
+    "leandojo/v10-29dcec07": {
+     "batch": 122512,
+     "new": 122512,
+     "unchanged": 0,
+     "conflict": 0,
+     "files_added": 5
+    },
+    "numinamath/hf-9d8d210c": {
+     "batch": 687696,
+     "new": 687696,
+     "unchanged": 0,
+     "conflict": 0,
+     "files_added": 10
+    },
+    "proofnet/git-509ad797": {
+     "batch": 371,
+     "new": 371,
+     "unchanged": 0,
+     "conflict": 0,
+     "files_added": 2
+    }
+   },
+   "files_added": 17,
+   "records_error": 5,
+   "read_errors": 0,
+   "etl_s": 49.543,
+   "ingest_s": 49.968,
+   "compaction": {
+    "compaction_s": 4.023,
+    "partitions_rewritten": 3,
+    "files_before": 17,
+    "files_after": 11,
+    "mb_rewritten": 61.8,
+    "mode": "minor<32MB"
+   },
+   "total_s": 53.991
+  },
+  {
+   "version": 1,
+   "run_id": "ingest-20261021204630-c74775",
+   "batch": "v1 batch mới NuminaMath shard 4",
+   "committed_at": "2026-10-21T13:46:53+00:00",
+   "operation": "append",
+   "staging": "D:\\Study\\thsHTTT\\bigdata\\_storage\\staging_w6_batch",
+   "partitions": {
+    "numinamath/hf-9d8d210c": {
+     "batch": 171898,
+     "new": 171898,
+     "unchanged": 0,
+     "conflict": 0,
+     "files_added": 5
+    }
+   },
+   "files_added": 5,
+   "records_error": 0,
+   "read_errors": 0,
+   "etl_s": 15.771,
+   "ingest_s": 19.886,
+   "compaction": {
+    "compaction_s": 3.218,
+    "partitions_rewritten": 1,
+    "files_before": 16,
+    "files_after": 12,
+    "mb_rewritten": 83.5,
+    "mode": "minor<32MB"
+   },
+   "total_s": 23.104
+  },
+  {
+   "version": 2,
+   "run_id": "ingest-20261021204653-0a1ac9",
+   "batch": "v2 nạp lại batch shard 4 (idempotent)",
+   "committed_at": "2026-10-21T13:47:11+00:00",
+   "operation": "append",
+   "staging": "D:\\Study\\thsHTTT\\bigdata\\_storage\\staging_w6_batch",
+   "partitions": {
+    "numinamath/hf-9d8d210c": {
+     "batch": 171898,
+     "new": 0,
+     "unchanged": 171898,
+     "conflict": 0,
+     "files_added": 0
+    }
+   },
+   "files_added": 0,
+   "records_error": 0,
+   "read_errors": 0,
+   "etl_s": 15.39,
+   "ingest_s": 18.075,
+   "compaction": null,
+   "total_s": 18.075
+  }
+ ],
+ "example_queries": {
+  "Đếm bản ghi theo nguồn và split": "SELECT source, split, count(*) FROM math_record GROUP BY ALL ORDER BY ALL",
+  "Cặp NL–Lean 3 của ProofNet theo sách": "SELECT subset, count(*) FROM math_record WHERE source = 'proofnet' GROUP BY 1 ORDER BY 2 DESC",
+  "Định lý Lean 4 dùng một premise cho trước": "SELECT lean_full_name, formal_statement FROM math_record WHERE source = 'leandojo' AND list_contains(premises, 'Nat.succ_le_iff')",
+  "Truy ngược nguồn gốc một bản ghi": "SELECT raw_uri, raw_row, raw_sha256, license, downloaded_at, ingest_run_id FROM math_record WHERE record_id = '<id>'",
+  "Bài olympiad có LaTeX cho Nhóm 8": "SELECT record_id, nl_problem FROM math_record WHERE source = 'numinamath' AND subset = 'olympiads' AND has_latex LIMIT 10"
+ },
+ "check_queries": {
+  "Q0_full_scan": "SELECT count(*), sum(length(coalesce(nl_solution, ''))), sum(length(coalesce(formal_statement, ''))) FROM {t}",
+  "Q1_count_by_source_split": "SELECT source, split, count(*) FROM {t} GROUP BY 1, 2 ORDER BY 1, 2",
+  "Q2_olympiad_latex": "SELECT count(*), round(avg(length(nl_problem)), 2) FROM {t} WHERE source = 'numinamath' AND subset = 'olympiads' AND has_latex",
+  "Q3_point_lookup": "SELECT record_id, source, content_sha256 FROM {t} WHERE record_id IN ({ids}) ORDER BY 1",
+  "Q4_top_premises": "SELECT p, count(*) AS c FROM (SELECT unnest(premises) AS p FROM {t} WHERE source = 'leandojo') GROUP BY p ORDER BY c DESC, p LIMIT 10",
+  "Q5_provenance_audit": "SELECT source, license, (source IS NOT NULL AND source_version IS NOT NULL AND raw_uri IS NOT NULL AND raw_row IS NOT NULL AND raw_sha256 IS NOT NULL AND license IS NOT NULL AND source_url IS NOT NULL AND downloaded_at IS NOT NULL AND ingest_run_id IS NOT NULL) AS ok, count(*) FROM {t} GROUP BY ALL ORDER BY 1, 2, 3"
+ }
+}

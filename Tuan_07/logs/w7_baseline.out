@@ -1,0 +1,12 @@
+20261021-205206-baseline-10k-ac6a42 ok runtime=1.423s thr=7213.7 rss=188.9MB q=0.6076s
+20261021-205209-baseline-10k-558768 ok runtime=1.658s thr=6158.0 rss=197.4MB q=0.5374s
+20261021-205211-baseline-10k-fcf4b5 ok runtime=1.412s thr=7295.9 rss=197.0MB q=0.5497s
+20261021-205214-baseline-100k-911f45 ok runtime=7.584s thr=13263.4 rss=222.0MB q=5.4347s
+20261021-205228-baseline-100k-5634a3 ok runtime=7.412s thr=13579.0 rss=222.0MB q=5.3435s
+20261021-205241-baseline-100k-8ed720 ok runtime=7.471s thr=13466.9 rss=222.0MB q=5.3411s
+20261021-205255-baseline-500k-85d905 ok runtime=41.534s thr=12072.2 rss=314.5MB q=26.533s
+20261021-205406-baseline-500k-ef457d ok runtime=33.549s thr=14952.1 rss=315.1MB q=26.7482s
+20261021-205510-baseline-500k-f14fa5 ok runtime=33.751s thr=14862.8 rss=315.4MB q=26.6927s
+20261021-205613-baseline-full-7db569 ok runtime=65.913s thr=14952.3 rss=429.9MB q=51.9548s
+20261021-205817-baseline-full-2087de ok runtime=65.687s thr=15003.3 rss=428.4MB q=52.4766s
+20261021-210021-baseline-full-2df24f ok runtime=65.848s thr=14966.6 rss=429.9MB q=52.1274s
