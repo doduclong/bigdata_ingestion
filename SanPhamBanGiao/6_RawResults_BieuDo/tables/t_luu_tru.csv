@@ -1,0 +1,8 @@
+layout,files,size_mb,query_total_s_median
+L0_jsonl,1,2340.8,6.5715
+L1_parquet_flat,4,454.3,0.6107
+L2_parquet_src_ver,6,446.1,0.6921
+L3_parquet_src_ver_subset,54,424.1,0.7357
+L4_parquet_small_files,512,465.1,0.936
+L5_parquet_compacted,6,450.9,0.6216
+L6_parquet_src_ver_rg16,6,446.7,0.6104

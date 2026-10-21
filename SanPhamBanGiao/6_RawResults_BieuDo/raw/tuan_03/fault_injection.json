@@ -1,0 +1,118 @@
+{
+  "cases": [
+    {
+      "case": "JSON bị cắt cụt",
+      "expected_code": "E05_PARSE"
+    },
+    {
+      "case": "Byte không phải UTF-8",
+      "expected_code": "E05_PARSE"
+    },
+    {
+      "case": "JSON không phải object",
+      "expected_code": "E05_PARSE"
+    },
+    {
+      "case": "Thiếu nội dung (problem rỗng)",
+      "expected_code": "E03_EMPTY_CONTENT"
+    },
+    {
+      "case": "Nguồn không hợp lệ",
+      "expected_code": "E04_TRANSFORM"
+    },
+    {
+      "case": "Trùng khóa (dòng lặp lại)",
+      "expected_code": "E06_DUPLICATE_KEY"
+    },
+    {
+      "case": "raw_uri không có trong manifest",
+      "expected_code": "E01_MISSING_REQUIRED"
+    },
+    {
+      "case": "ProofNet thiếu formal_statement",
+      "expected_code": "E03_EMPTY_CONTENT"
+    }
+  ],
+  "expected": {
+    "E05_PARSE": 3,
+    "E03_EMPTY_CONTENT": 2,
+    "E04_TRANSFORM": 1,
+    "E06_DUPLICATE_KEY": 1,
+    "E01_MISSING_REQUIRED": 1
+  },
+  "detected": {
+    "E05_PARSE": 3,
+    "E03_EMPTY_CONTENT": 2,
+    "E04_TRANSFORM": 1,
+    "E06_DUPLICATE_KEY": 1,
+    "E01_MISSING_REQUIRED": 1
+  },
+  "all_detected": true,
+  "records_out": 10000,
+  "records_out_expected": 10000,
+  "pipeline_completed": true,
+  "read_errors_sample": [
+    {
+      "file": "D:\\Study\\thsHTTT\\bigdata\\_storage\\staging_faulty\\numinamath\\hf-9d8d210c\\part-train-00000-of-00005.jsonl",
+      "line": 1624,
+      "error": "E05_PARSE:Expecting value: line 2 column 1 (char 32)"
+    },
+    {
+      "file": "D:\\Study\\thsHTTT\\bigdata\\_storage\\staging_faulty\\numinamath\\hf-9d8d210c\\part-train-00000-of-00005.jsonl",
+      "line": 1625,
+      "error": "E05_PARSE:invalid utf-8"
+    },
+    {
+      "file": "D:\\Study\\thsHTTT\\bigdata\\_storage\\staging_faulty\\numinamath\\hf-9d8d210c\\part-train-00000-of-00005.jsonl",
+      "line": 1626,
+      "error": "E05_PARSE:not a JSON object"
+    }
+  ],
+  "record_errors_sample": [
+    {
+      "errors": [
+        "E03_EMPTY_CONTENT"
+      ],
+      "raw_row": 87,
+      "raw_uri": "raw/numinamath/train-00000-of-00005.parquet",
+      "record_id": "8d72136405fd45f47aab",
+      "source": "numinamath"
+    },
+    {
+      "errors": [
+        "E04_TRANSFORM:KeyError"
+      ],
+      "raw_row": 87,
+      "raw_uri": "raw/numinamath/train-00000-of-00005.parquet",
+      "record_id": null,
+      "source": "unknown"
+    },
+    {
+      "errors": [
+        "E06_DUPLICATE_KEY"
+      ],
+      "raw_row": 87,
+      "raw_uri": "raw/numinamath/train-00000-of-00005.parquet",
+      "record_id": "025b524c37f5bf4288b3",
+      "source": "numinamath"
+    },
+    {
+      "errors": [
+        "E01_MISSING_REQUIRED:raw_sha256,downloaded_at"
+      ],
+      "raw_row": 87,
+      "raw_uri": "raw/x.parquet",
+      "record_id": "6ed2902ef2f7ddeb5915",
+      "source": "numinamath"
+    },
+    {
+      "errors": [
+        "E03_EMPTY_CONTENT"
+      ],
+      "raw_row": 0,
+      "raw_uri": "raw/proofnet/test.jsonl",
+      "record_id": "1913d2c366d1b0d38fc0",
+      "source": "proofnet"
+    }
+  ]
+}

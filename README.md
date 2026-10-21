@@ -20,4 +20,6 @@ Mỗi tuần một thư mục, theo bảng nhiệm vụ của Nhóm 1 trong `Huo
 - `.venv/`: môi trường Python 3.11.
 - `_tools/`: công cụ chuyển Markdown → .docx và script tạo slide.
 
-**Bắt đầu từ:** `Tuan_10/math_data_lake/README.md`.
+**Sản phẩm bàn giao theo mục 10 của đề bài:** `SanPhamBanGiao/` (7 thư mục: kho Parquet mẫu + manifest, lược đồ + data dictionary, pipeline, data card + license, bộ truy vấn kiểm tra, raw results + biểu đồ, README + demo).
+
+**Bắt đầu từ:** `SanPhamBanGiao/README.md` hoặc `Tuan_10/math_data_lake/README.md`.
