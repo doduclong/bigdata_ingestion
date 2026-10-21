@@ -15,6 +15,8 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Cm, Pt, RGBColor
 
+BLACK = RGBColor(0, 0, 0)  # mọi chữ trong báo cáo dùng một màu đen
+
 INLINE = re.compile(r"(\*\*[^*]+\*\*|`[^`]+`|\*[^*\s][^*]*\*)")
 
 
@@ -29,7 +31,7 @@ def add_inline(par, text, size=None):
             run = par.add_run(part[1:-1])
             run.font.name = "Consolas"
             run.font.size = Pt(9.5)
-            run.font.color.rgb = RGBColor(0x8B, 0x1A, 0x1A)
+            run.font.color.rgb = BLACK
         elif part.startswith("*") and part.endswith("*") and len(part) > 2:
             run = par.add_run(part[1:-1])
             run.italic = True
@@ -61,7 +63,7 @@ def add_table(doc, rows):
         add_inline(c.paragraphs[0], h, font)
         for r in c.paragraphs[0].runs:
             r.bold = True
-        shade(c, "D9E2F3")
+        shade(c, "E7E6E6")  # nền xám nhạt trung tính, chữ vẫn đen
     for i, r in enumerate(body, start=1):
         for j in range(ncol):
             c = table.rows[i].cells[j]
@@ -79,6 +81,7 @@ def convert(md_path, out_path):
     normal = doc.styles["Normal"]
     normal.font.name = "Times New Roman"
     normal.font.size = Pt(12)
+    normal.font.color.rgb = BLACK
     normal.element.rPr.rFonts.set(qn("w:eastAsia"), "Times New Roman")
     for name in ("Heading 1", "Heading 2", "Heading 3", "Heading 4", "Title"):
         st = doc.styles[name]
@@ -88,7 +91,7 @@ def convert(md_path, out_path):
             rfonts.attrib.pop(qn(attr), None)  # bỏ font theme (Calibri Light) để dùng Times New Roman
         for attr in ("w:ascii", "w:hAnsi", "w:eastAsia", "w:cs"):
             rfonts.set(qn(attr), "Times New Roman")
-        st.font.color.rgb = RGBColor(0x1F, 0x3A, 0x68)
+        st.font.color.rgb = BLACK
 
     lines = md_path.read_text(encoding="utf-8").splitlines()
     i = 0
@@ -170,8 +173,18 @@ def convert(md_path, out_path):
         p = doc.add_paragraph()
         p.paragraph_format.space_after = Pt(4)
         add_inline(p, " ".join(buf))
+    force_black(doc)
     doc.save(out_path)
     return out_path
+
+
+def force_black(doc):
+    """Ép mọi màu chữ (cả trong styles mặc định của mẫu Word) về đen, bỏ màu theo theme."""
+    for root in (doc.styles.element, doc.element):
+        for el in root.iter(qn("w:color")):
+            for attr in ("w:themeColor", "w:themeShade", "w:themeTint"):
+                el.attrib.pop(qn(attr), None)
+            el.set(qn("w:val"), "000000")
 
 
 if __name__ == "__main__":
