@@ -1,0 +1,38 @@
+﻿cot,nhom,kieu,null,partition,mien_gia_tri,mo_ta,numinamath,proofnet,leandojo,ty_le_null_%,vi_du
+record_id,định danh,string,không,,,sha1(source + '|' + source_record_key)[:20]; khóa ổn định giữa các lần chạy,sha1('numinamath|'+key)[:20],sha1('proofnet|'+id)[:20],sha1('leandojo|'+file_path::full_name)[:20],leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,00000378dc968485995d
+source,provenance,string,không,có,"leandojo, numinamath, proofnet",numinamath | proofnet | leandojo (cột partition),(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,numinamath
+source_version,provenance,string,không,có,,"phiên bản snapshot, khớp manifest (cột partition)",(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,hf-9d8d210c
+source_record_key,định danh,string,không,,,khóa gốc: id ProofNet / file_path::full_name / shard:row,<shard>:<row> (không có ID gốc),id,file_path::full_name,leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,train-00000-of-00005:78817
+record_type,định danh,string,không,,"formal_theorem, nl_formal_pair, problem_solution",problem_solution | nl_formal_pair | formal_theorem,—,—,—,leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,problem_solution
+split,định danh,string,không,,,split gốc của nguồn: train/val/valid/test,tên tệp: train/test,valid/test,random split: train/val/test,leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,train
+subset,định danh,string,có,,,"nguồn con (NuminaMath), sách (ProofNet), nhóm module (LeanDojo)","source (cn_k12, olympiads…)",tên sách trong id (phần trước |),2 cấp module (Mathlib.Algebra) / gói .lake,leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,cn_k12
+nl_problem,nội dung,string,có,,,đề bài / phát biểu ngôn ngữ tự nhiên (giữ nguyên LaTeX),problem,nl_statement,—,leandojo: 100.0; numinamath: 0.0; proofnet: 0.0,"Given that $a\_i > 0 (i=1,2,…,n)$, examine the following inequalities: \[①a\_1 \cdot \frac…"
+nl_solution,nội dung,string,có,,,lời giải / chứng minh ngôn ngữ tự nhiên,solution,nl_proof,—,leandojo: 100.0; numinamath: 0.0; proofnet: 0.0,**Conclusion**: $(a\_1+a\_2+…+a\_n)(\frac {1}{a\_1} + \frac {1}{a\_2} +…+ \frac {1}{a\_n})…
+formal_language,nội dung,string,có,,"lean3, lean4",lean3 | lean4 | null,—,lean3,lean4,leandojo: 0.0; numinamath: 100.0; proofnet: 0.0,lean4
+formal_statement,nội dung,string,có,,,phát biểu hình thức (Lean),—,formal_statement,corpus.code cắt tại := mức ngoặc 0,leandojo: 0.0; numinamath: 100.0; proofnet: 0.0,"@[simp] lemma deleteEdges_adj : (G.deleteEdges s).Adj v w ↔ G.Adj v w ∧ ¬s(v, w) ∈ s"
+formal_proof,nội dung,string,có,,,chứng minh hình thức: các tactic nối bằng xuống dòng,—,—,các tactic nối bằng xuống dòng,leandojo: 49.76; numinamath: 100.0; proofnet: 100.0,"simp only [oangle, map_neg] convert Complex.arg_neg_coe_angle _ exact o.kahler_ne_zero hx …"
+formal_header,nội dung,string,có,,,header/import cần để biên dịch phát biểu,—,src_header,corpus.imports nối bằng xuống dòng,leandojo: 0.0; numinamath: 100.0; proofnet: 0.0,Mathlib/Data/Sym/Sym2.lean Mathlib/Data/Rel.lean .lake/packages/lean4/src/lean/Init.lean M…
+formal_goal,nội dung,string,có,,,goal ban đầu (state_before của tactic đầu tiên),—,—,traced_tactics[0].state_before,leandojo: 49.76; numinamath: 100.0; proofnet: 100.0,V : Type u_1 V' : Type u_2 inst✝⁵ : NormedAddCommGroup V inst✝⁴ : NormedAddCommGroup V' in…
+lean_full_name,nội dung,string,có,,,tên đầy đủ của định lý Lean,—,—,full_name,leandojo: 0.0; numinamath: 100.0; proofnet: 100.0,SimpleGraph.deleteEdges_adj
+lean_file_path,nội dung,string,có,,,đường dẫn tệp .lean trong mathlib4,—,—,file_path,leandojo: 0.0; numinamath: 100.0; proofnet: 100.0,Mathlib/Combinatorics/SimpleGraph/Basic.lean
+lean_start_line,nội dung,int,có,,,dòng bắt đầu khai báo,—,—,start[0],leandojo: 0.0; numinamath: 100.0; proofnet: 100.0,926
+lean_end_line,nội dung,int,có,,,dòng kết thúc khai báo,—,—,end[0],leandojo: 0.0; numinamath: 100.0; proofnet: 100.0,927
+tactics,nội dung,list<string>,không,,,danh sách tactic (rỗng nếu không có),[],[],traced_tactics[].tactic,leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,[]
+premises,nội dung,list<string>,không,,,tên premise duy nhất được dùng trong chứng minh (theo thứ tự xuất hiện),[],[],"annotated_tactic[1][].full_name (duy nhất, theo thứ tự)",leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,[]
+num_tactics,dẫn xuất,int,không,,,số tactic,(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,0
+has_text,dẫn xuất,bool,không,,,có nl_problem hoặc nl_solution,(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,true
+has_latex,dẫn xuất,bool,không,,,nội dung NL chứa biểu thức LaTeX,(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,true
+has_lean,dẫn xuất,bool,không,,,có formal_statement,(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,false
+latex_count,dẫn xuất,int,không,,,số biểu thức LaTeX trong nl_problem + nl_solution,(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,20
+content_sha256,dẫn xuất,string,không,,,sha256 của nl_problem␟nl_solution␟formal_statement␟formal_proof,(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,701a4c2175b2748bf67d94e3908ee8db642107f9126a62d289d040aa9490a1aa
+quality_flags,dẫn xuất,list<string>,không,,,cảnh báo chất lượng không chặn (W01..),(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,[]
+extra_json,nội dung,string,có,,,"trường gốc chưa ánh xạ (JSON), để không mất thông tin",messages nếu khác problem/solution,—,"url, commit, start, end, split_novel_premises",leandojo: 0.0; numinamath: 100.0; proofnet: 100.0,"{""commit"":""29dcec074de168ac2bf835a77ef68bbe069194c5"",""end"":[927,50],""split_novel_premises""…"
+raw_uri,provenance,string,không,,,đường dẫn tệp raw (tương đối với kho),(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,raw/numinamath/train-00000-of-00005.parquet
+raw_row,provenance,int,không,,,chỉ số dòng/bản ghi trong tệp raw,(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,78817
+raw_sha256,provenance,string,không,,,"sha256 tệp raw, khớp manifest",(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,25c0fa2ca96dd8078470ad1bbc439d0d211fd8b7d22e04abf7f61e9be9bf9ec3
+license,provenance,string,không,,,SPDX id giấy phép của nguồn,(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,Apache-2.0
+source_url,provenance,string,không,,,URL trang nguồn,(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,https://huggingface.co/datasets/AI-MO/NuminaMath-CoT
+downloaded_at,provenance,string,không,,,thời điểm tải tệp raw (ISO-8601 UTC),(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,2026-10-21T09:36:34+00:00
+ingest_run_id,provenance,string,không,,,mã lần chạy ETL tạo ra bản ghi,(sinh bởi pipeline),(sinh bởi pipeline),(sinh bởi pipeline),leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,cli-etl
+pipeline_version,nội dung,string,không,,,phiên bản mã pipeline,—,—,—,leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,1.0.0
+schema_version,nội dung,string,không,,,"phiên bản lược đồ, hiện tại 1.0",—,—,—,leandojo: 0.0; numinamath: 0.0; proofnet: 0.0,1.0
