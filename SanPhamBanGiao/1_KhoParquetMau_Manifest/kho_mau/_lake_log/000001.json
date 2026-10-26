@@ -1,0 +1,31 @@
+{
+ "version": 1,
+ "run_id": "demo-v1",
+ "batch": "v1 batch mới",
+ "committed_at": "2026-10-21T15:26:40+00:00",
+ "operation": "append",
+ "staging": "D:\\Study\\thsHTTT\\bigdata\\_storage\\demo\\batch",
+ "partitions": {
+  "numinamath/hf-9d8d210c": {
+   "batch": 477,
+   "new": 477,
+   "unchanged": 0,
+   "conflict": 0,
+   "files_added": 1
+  }
+ },
+ "files_added": 1,
+ "records_error": 0,
+ "read_errors": 0,
+ "etl_s": 5.632,
+ "ingest_s": 6.193,
+ "compaction": {
+  "compaction_s": 0.165,
+  "partitions_rewritten": 1,
+  "files_before": 4,
+  "files_after": 3,
+  "mb_rewritten": 0.3,
+  "mode": "minor<32MB"
+ },
+ "total_s": 6.358
+}
