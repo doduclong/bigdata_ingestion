@@ -1,0 +1,24 @@
+{
+ "version": 2,
+ "run_id": "demo-v2",
+ "batch": "v2 nạp lại (idempotent)",
+ "committed_at": "2026-10-21T15:26:45+00:00",
+ "operation": "append",
+ "staging": "D:\\Study\\thsHTTT\\bigdata\\_storage\\demo\\batch",
+ "partitions": {
+  "numinamath/hf-9d8d210c": {
+   "batch": 477,
+   "new": 0,
+   "unchanged": 477,
+   "conflict": 0,
+   "files_added": 0
+  }
+ },
+ "files_added": 0,
+ "records_error": 0,
+ "read_errors": 0,
+ "etl_s": 5.461,
+ "ingest_s": 5.948,
+ "compaction": null,
+ "total_s": 5.949
+}
