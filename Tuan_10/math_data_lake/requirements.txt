@@ -1,4 +1,8 @@
 # Môi trường chung của Nhóm 1 (Python 3.11, Java 21)
+# conda create -n bigdata python=3.11 -y
+# conda activate bigdata
+# cd D:\PTIT\Bigdata\bigdata_ingestion\Tuan_10\math_data_lake
+# python -m pip install -r requirements.lock.txt
 pyspark==4.0.1
 duckdb==1.3.2
 pyarrow==21.0.0

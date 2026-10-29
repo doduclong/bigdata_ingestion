@@ -1,0 +1,36 @@
+{
+  "raw": "data_sample/raw",
+  "sources": {
+    "numinamath": {
+      "records": 0,
+      "read_errors": 0,
+      "seconds": 0.0,
+      "rss_mb_after": 45,
+      "first_keys": []
+    },
+    "proofnet": {
+      "records": 0,
+      "read_errors": 0,
+      "seconds": 0.0,
+      "rss_mb_after": 45,
+      "first_keys": []
+    },
+    "leandojo": {
+      "records": 0,
+      "read_errors": 0,
+      "seconds": 0.0,
+      "rss_mb_after": 45,
+      "first_keys": []
+    },
+    "leandojo_corpus": {
+      "records": 0,
+      "read_errors": 1,
+      "seconds": 0.0,
+      "rss_mb_after": 45,
+      "first_keys": []
+    }
+  },
+  "errors": [
+    "leandojo_corpus: FileNotFoundError: [Errno 2] No such file or directory: 'data_sample\\\\raw\\\\leandojo\\\\leandojo_benchmark_4\\\\corpus.jsonl'"
+  ]
+}

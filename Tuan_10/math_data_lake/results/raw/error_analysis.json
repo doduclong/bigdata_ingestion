@@ -1,0 +1,346 @@
+{
+ "W05": {
+  "total": 25249,
+  "W05a_ky_hieu_tien_te": {
+   "count": 23972,
+   "examples": [
+    [
+     "0003c9644fc0b9a0f1b5",
+     "cn_k12",
+     ".\" If a certain store makes a profit of $300, it is recorded as $+300. Then a loss"
+    ],
+    [
+     "00049714f0733694981b",
+     "orca_math",
+     "john bought 9.25 m of cloth for $ 425.50 . find the cost price per metre . "
+    ],
+    [
+     "000b054d5495cd8d6058",
+     "orca_math",
+     " buy 2 liters of mustard oil that costs $13 per liter, 3 pounds of gluten-free pen"
+    ]
+   ],
+   "by_subset": [
+    [
+     "orca_math",
+     17892
+    ],
+    [
+     "synthetic_amc",
+     2152
+    ],
+    [
+     "gsm8k",
+     1539
+    ],
+    [
+     "cn_k12",
+     941
+    ]
+   ]
+  },
+  "W05b_dollar_thoat_\\$": {
+   "count": 14412,
+   "examples": [
+    [
+     "00049714f0733694981b",
+     "orca_math",
+     "price per meter of the cloth is $\\boxed{\\$46.00}$ ."
+    ],
+    [
+     "000b054d5495cd8d6058",
+     "orca_math",
+     "f gluten-free penne pasta costs $\\boxed{\\$4}$ ."
+    ],
+    [
+     "000be3887497add5abc9",
+     "orca_math",
+     "y member will pay approximately $\\boxed{\\$4.92}$ ."
+    ]
+   ],
+   "by_subset": [
+    [
+     "orca_math",
+     12761
+    ],
+    [
+     "gsm8k",
+     1049
+    ],
+    [
+     "synthetic_math",
+     250
+    ],
+    [
+     "synthetic_amc",
+     167
+    ]
+   ]
+  },
+  "W05c_display_$$_le": {
+   "count": 843,
+   "examples": [
+    [
+     "002d44b03b89304388ce",
+     "cn_k12",
+     "$$f'\\left(x\\right)=6x^{2}-2ax$$"
+    ],
+    [
+     "0052787faffef00ec061",
+     "olympiads",
+     "$$"
+    ],
+    [
+     "005f896fca69ab06ca69",
+     "synthetic_math",
+     "$$\\begin{align*}"
+    ]
+   ],
+   "by_subset": [
+    [
+     "cn_k12",
+     355
+    ],
+    [
+     "olympiads",
+     226
+    ],
+    [
+     "synthetic_math",
+     104
+    ],
+    [
+     "synthetic_amc",
+     65
+    ]
+   ]
+  },
+  "khong_khop_quy_tac": {
+   "count": 1010,
+   "examples": [
+    [
+     "0061afb7365f3dbe1755",
+     "orca_math",
+     "Last week, David spent 40 percent of his wages on recreation. This week, his wages are 5 percent less than last week's wages, and he spent 50 percent of his wag"
+    ],
+    [
+     "0079574aa657e1b213a0",
+     "orca_math",
+     "A dress on sale in a shop is marked at $d. During a discount sale, its price is reduced by a certain percentage. Staff are allowed a further 40% reduction on th"
+    ],
+    [
+     "00e70280717568e9bdca",
+     "olympiads",
+     "In quadrilateral \\(ABCD\\), sides \\(AB\\) and \\(CD\\) are equal, and the rays \\(AB\\) and \\(DC\\) intersect at point \\(O\\). Prove that the line passing through the m"
+    ],
+    [
+     "018adff4cd271b8307ae",
+     "orca_math",
+     "a part - time employee whose hourly wage was increased by 10 percent decided to reduce the number of hours worked per week so that the employee ' s total weekly"
+    ],
+    [
+     "022609db839a1012def2",
+     "olympiads",
+     "A polyhedron has 12 faces and is such that:\n(i) all faces are isosceles triangles,\n(ii) all edges have length either \\( x \\) or \\( y \\),\n(iii) at each vertex ei"
+    ]
+   ]
+  }
+ },
+ "W04": {
+  "total": 266,
+  "W04a_0x0C_ligature_fi_OT1": {
+   "count": 160,
+   "examples": [
+    [
+     "0167a76dfb93fa0e7564",
+     "aops_forum",
+     "f an  $n \\times n$  grid is arbitrarily \ffilled with either by  $1$  or by  $-1$ "
+    ],
+    [
+     "0999351c69fe1b2e498c",
+     "aops_forum",
+     "hat the following properties are satisfi\fed?"
+    ],
+    [
+     "0c0c6a36cceb3c64c2d5",
+     "aops_forum",
+     " \\times n$  rectangle with corners (see \ffigure below) \"regular\" if there is no s"
+    ]
+   ],
+   "by_subset": [
+    [
+     "aops_forum",
+     160
+    ]
+   ]
+  },
+  "W04b_0x0B_ligature_ff_OT1": {
+   "count": 31,
+   "examples": [
+    [
+     "0d4ec79d067ed9803f6a",
+     "aops_forum",
+     "re several runners, each running at a di\u000bfferent constant speed. They start at on"
+    ],
+    [
+     "18024c1223b2cf4e7fc9",
+     "aops_forum",
+     "\\[\\sin \\alpha\u000b + \\sin \\beta\f > \\cos \\alpha\u000b + \\cos\\bet"
+    ],
+    [
+     "24622bba5c3fa8d1484c",
+     "aops_forum",
+     "A man with mass  $m$  jumps off\u000b of a high bridge with a bungee cord att"
+    ]
+   ],
+   "by_subset": [
+    [
+     "aops_forum",
+     31
+    ]
+   ]
+  },
+  "W04c_0x08_loi_escape_backslash_b(oxed)": {
+   "count": 1,
+   "examples": [
+    [
+     "2c2e3c35e5d41dd92a1b",
+     "cn_k12",
+     "$\boxed{f(x) = 2\\sin(2x + \\frac{π}{6})}$"
+    ]
+   ],
+   "by_subset": [
+    [
+     "cn_k12",
+     1
+    ]
+   ]
+  },
+  "W04d_ky_tu_dieu_khien_khac": {
+   "count": 97,
+   "examples": [
+    [
+     "01cedddb78c5f456a602",
+     "aops_forum",
+     "re positive integers and  $1 = a_0 \\leq \u0014a_1 < a_2 < . . .  < a_n$  To find all r"
+    ],
+    [
+     "03c66f66e7b1809fec56",
+     "aops_forum",
+     " a_2, . . . , a_{2016}$  where  $1 \\leq \u0014a_i \\leq1010$ , there is for some  $j$  "
+    ],
+    [
+     "048a6b7dc5150a0e195b",
+     "aops_forum",
+     " the three conditions $\\star$    $x \\le\u0014 2y$  $\\star$   $y \u0014\\le 2x$  $\\star$  "
+    ]
+   ],
+   "by_subset": [
+    [
+     "aops_forum",
+     90
+    ],
+    [
+     "olympiads",
+     3
+    ],
+    [
+     "cn_k12",
+     2
+    ],
+    [
+     "synthetic_amc",
+     2
+    ]
+   ]
+  },
+  "khong_khop_quy_tac": {
+   "count": 0,
+   "examples": []
+  }
+ },
+ "W03": [
+  [
+   "2cabdde0305eab57679e",
+   "olympiads",
+   "very pair of cells taken from �\\(\\mathcal{F1}\\) and the cross"
+  ],
+  [
+   "f8f43c269f8e45a402ee",
+   "olympiads",
+   "   - �"
+  ],
+  [
+   "67e699248641b17a3982",
+   "olympiads",
+   "Par convexit� les indices $\\ell$ pour lesqu"
+  ],
+  [
+   "584647762787ea5cc42d",
+   "olympiads",
+   "a - b) + (b - c) + (c - d) = -�5 + 8 + 10  = 13 "
+  ],
+  [
+   "a17294a0857d33ef8d21",
+   "olympiads",
+   "� Part (a): $\\boxed{\\frac{31}{2"
+  ]
+ ],
+ "E_errors": [
+  [
+   "leandojo",
+   "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   14359,
+   [
+    "E03_EMPTY_CONTENT"
+   ]
+  ],
+  [
+   "leandojo",
+   "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   33349,
+   [
+    "E03_EMPTY_CONTENT",
+    "E06_DUPLICATE_KEY"
+   ]
+  ],
+  [
+   "leandojo",
+   "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   39005,
+   [
+    "E03_EMPTY_CONTENT",
+    "E06_DUPLICATE_KEY"
+   ]
+  ],
+  [
+   "leandojo",
+   "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   84230,
+   [
+    "E03_EMPTY_CONTENT",
+    "E06_DUPLICATE_KEY"
+   ]
+  ],
+  [
+   "leandojo",
+   "raw/leandojo/leandojo_benchmark_4/random/train.json",
+   114462,
+   [
+    "E03_EMPTY_CONTENT"
+   ]
+  ]
+ ],
+ "exact_duplicates": [
+  [
+   "numinamath",
+   10312,
+   3671
+  ],
+  [
+   "leandojo",
+   1505,
+   720
+  ]
+ ]
+}

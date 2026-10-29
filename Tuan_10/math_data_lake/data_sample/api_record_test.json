@@ -1,0 +1,13 @@
+{
+  "source": "numinamath",
+  "source_version": "api-v1",
+  "source_record_key": "api-test-001",
+  "split": "train",
+  "license": "CC0-1.0",
+  "source_url": "https://example.org/my-test-data",
+  "data": {
+    "source": "manual-test",
+    "problem": "test",
+    "solution": "test"
+  }
+}

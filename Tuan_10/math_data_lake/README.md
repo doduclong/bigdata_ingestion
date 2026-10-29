@@ -51,16 +51,16 @@ python scripts/mdl.py serve               # API dữ liệu cho các nhóm khác
 
 ## 6. Tái tạo kết quả chính
 
-| Kết quả | Lệnh | Raw results |
-|---|---|---|
-| Baseline + Spark 4 mức × 3 lần | `scripts/tao_scales.py`; `scripts/chay_baseline.py --scales 10k 100k 500k full --repeat 3 --sql`; `scripts/chay_spark.py ... --cores 2|4|8 --queries` | `results/raw/tuan_07/` |
-| Parity Spark ↔ baseline toàn bộ | `scripts/kiem_tra_parity_full.py` | `results/raw/tuan_04/parity_full.json` |
-| Cấu hình lưu trữ L0–L6 | `scripts/chay_luu_tru.py --repeat 1` (×3) | `results/raw/tuan_08/runs_storage_x3.jsonl` |
-| Nạp gia tăng | `scripts/chay_gia_tang.py --repeat 3`; `scripts/tao_catalog.py` | `results/raw/tuan_06/` |
-| Ablation + phân rã | `scripts/chay_ablation.py --repeat 3` | `results/raw/tuan_08/runs_ablation.jsonl` |
-| Phân tích lỗi | `scripts/phan_tich_loi.py`, `scripts/kiem_tra_loi_doc.py` | `results/raw/tuan_08/error_analysis.json`, `tuan_03/fault_injection.json` |
-| Load test API | `scripts/load_test_api.py`; `scripts/tong_hop_api.py` | `results/raw/tuan_10/runs_api_load.jsonl` |
-| **Mọi hình/bảng của báo cáo** | `python scripts/tao_hinh_bao_cao.py` | → `results/figures/`, `results/tables/` |
+| Kết quả                                 | Lệnh                                                                                                                                      | Raw results                                                                   |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
+| Baseline + Spark 4 mức × 3 lần         | `scripts/tao_scales.py`; `scripts/chay_baseline.py --scales 10k 100k 500k full --repeat 3 --sql`; `scripts/chay_spark.py ... --cores 2 | 4                                                                             |
+| Parity Spark ↔ baseline toàn bộ        | `scripts/kiem_tra_parity_full.py`                                                                                                        | `results/raw/tuan_04/parity_full.json`                                      |
+| Cấu hình lưu trữ L0–L6               | `scripts/chay_luu_tru.py --repeat 1` (×3)                                                                                               | `results/raw/tuan_08/runs_storage_x3.jsonl`                                 |
+| Nạp gia tăng                            | `scripts/chay_gia_tang.py --repeat 3`; `scripts/tao_catalog.py`                                                                        | `results/raw/tuan_06/`                                                      |
+| Ablation + phân rã                      | `scripts/chay_ablation.py --repeat 3`                                                                                                    | `results/raw/tuan_08/runs_ablation.jsonl`                                   |
+| Phân tích lỗi                          | `scripts/phan_tich_loi.py`, `scripts/kiem_tra_loi_doc.py`                                                                              | `results/raw/tuan_08/error_analysis.json`, `tuan_03/fault_injection.json` |
+| Load test API                             | `scripts/load_test_api.py`; `scripts/tong_hop_api.py`                                                                                  | `results/raw/tuan_10/runs_api_load.jsonl`                                   |
+| **Mọi hình/bảng của báo cáo** | `python scripts/tao_hinh_bao_cao.py`                                                                                                     | → `results/figures/`, `results/tables/`                                  |
 
 Mỗi lần chạy ghi một dòng JSON theo Phụ lục B (run_id, timestamp, code version, data version, máy, phần mềm, tham số, seed/timeout, metric, trạng thái, log). Tham số từng thí nghiệm: `configs/experiments.yaml`.
 

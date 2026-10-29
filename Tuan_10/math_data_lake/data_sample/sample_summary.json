@@ -1,0 +1,17 @@
+{
+  "raw_sample": {
+    "numinamath": 497,
+    "proofnet": 200,
+    "leandojo": 300
+  },
+  "curated": {
+    "numinamath": 497,
+    "proofnet": 200,
+    "leandojo": 300
+  },
+  "errors": 0,
+  "quality_flags": {
+    "W05_UNBALANCED_DOLLAR": 22,
+    "W04_CONTROL_CHAR": 1
+  }
+}
