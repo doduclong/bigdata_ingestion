@@ -61,9 +61,9 @@ def staging_schemas():
                        ("src_header", S), *corrupt),
         "leandojo": st(*meta, ("file_path", S), ("full_name", S), ("start_line", L), ("end_line", L),
                        ("tactics", ArrayType(tactic)), *corrupt),
-        "leandojo_premise": st(("path", S), ("full_name", S), ("code", S), ("kind", S), ("start_line", L),
+        "leandojo_premise": st(("_source_version", S), ("path", S), ("full_name", S), ("code", S), ("kind", S), ("start_line", L),
                                ("end_line", L), ("_raw_uri", S), ("_raw_row", L), ("_premise_idx", L)),
-        "leandojo_file": st(("path", S), ("imports", ArrayType(S)), ("_raw_uri", S), ("_raw_row", L)),
+        "leandojo_file": st(("_source_version", S), ("path", S), ("imports", ArrayType(S)), ("_raw_uri", S), ("_raw_row", L)),
     }
 
 
@@ -124,15 +124,19 @@ def map_leandojo(df, premise, files):
     from pyspark.sql import Window
     from pyspark.sql import functions as F
     # khóa trùng trong corpus: giữ bản xuất hiện đầu tiên (giống baseline dict.setdefault)
-    w = Window.partitionBy("path", "full_name").orderBy("_raw_row", "_premise_idx")
+    premise = premise.withColumn("_p_version", F.coalesce("_source_version", F.lit(SOURCES["leandojo"]["version"])))
+    files = files.withColumn("_f_version", F.coalesce("_source_version", F.lit(SOURCES["leandojo"]["version"])))
+    w = Window.partitionBy("_p_version", "path", "full_name").orderBy("_raw_row", "_premise_idx")
     prem = (premise.withColumn("_rn", F.row_number().over(w)).where("_rn = 1")
-            .select(F.col("path").alias("_p_path"), F.col("full_name").alias("_p_name"), "code"))
-    fw = Window.partitionBy("path").orderBy(F.col("_raw_row").desc())  # baseline: dict ghi đè => bản cuối thắng
+            .select("_p_version", F.col("path").alias("_p_path"), F.col("full_name").alias("_p_name"), "code"))
+    fw = Window.partitionBy("_f_version", "path").orderBy(F.col("_raw_row").desc())
     fil = (files.withColumn("_rn", F.row_number().over(fw)).where("_rn = 1")
-           .select(F.col("path").alias("_f_path"), "imports"))
+           .select("_f_version", F.col("path").alias("_f_path"), "imports"))
     j = (_common(df)
-         .join(prem, (F.col("file_path") == F.col("_p_path")) & (F.col("full_name") == F.col("_p_name")), "left")
-         .join(fil, F.col("file_path") == F.col("_f_path"), "left"))
+         .join(prem, (F.col("file_path") == F.col("_p_path")) & (F.col("full_name") == F.col("_p_name")) &
+               (F.col("source_version") == F.col("_p_version")), "left")
+         .join(fil, (F.col("file_path") == F.col("_f_path")) &
+               (F.col("source_version") == F.col("_f_version")), "left"))
     parts = F.split("file_path", "/")
     has_tac = F.coalesce(F.size("tactics"), F.lit(0)) > 0
     return j.select(
@@ -190,7 +194,8 @@ def _derive(df, manifest_df, run_id):
     )
     df = df.withColumn("quality_flags", F.filter(flags, lambda x: x.isNotNull()))
     df = (df.join(F.broadcast(manifest_df), "raw_uri", "left")
-          .withColumn("license", lic[F.col("source")]).withColumn("source_url", url[F.col("source")])
+          .withColumn("license", F.coalesce("_manifest_license", lic[F.col("source")]))
+          .withColumn("source_url", F.coalesce("_manifest_url", url[F.col("source")]))
           .withColumn("ingest_run_id", F.lit(run_id))
           .withColumn("pipeline_version", F.lit(PIPELINE_VERSION))
           .withColumn("schema_version", F.lit(SCHEMA_VERSION)))
@@ -241,8 +246,10 @@ def build_curated(spark, staging_root, manifest_entries, run_id, check_duplicate
     df = parts[0]
     for p in parts[1:]:
         df = df.unionByName(p)
-    rows = [(e["raw_uri"], e["sha256"], e["downloaded_at"]) for e in manifest_entries.values()]
-    manifest_df = spark.createDataFrame(rows, "raw_uri string, raw_sha256 string, downloaded_at string")
+    rows = [(e["raw_uri"], e["sha256"], e["downloaded_at"], e.get("license"), e.get("source_url"))
+            for e in manifest_entries.values()]
+    manifest_df = spark.createDataFrame(rows, "raw_uri string, raw_sha256 string, downloaded_at string, "
+                                       "_manifest_license string, _manifest_url string")
     df = _derive(df, manifest_df, run_id).withColumn("_errors", _errors())
     if check_duplicates:
         # chỉ xáo trộn cột khóa (nhỏ) để tìm khóa trùng, rồi broadcast lại => tránh shuffle toàn bộ nội dung

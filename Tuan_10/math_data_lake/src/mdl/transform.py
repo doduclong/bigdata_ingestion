@@ -91,8 +91,10 @@ def to_unified(s, ctx):
                  formal_header=s.get("src_header"))
     else:
         tac = s.get("tactics") or []
-        code = ctx.get("premise_code", {}).get((s["file_path"], s["full_name"]))
-        imports = ctx.get("file_imports", {}).get(s["file_path"])
+        codes, headers = ctx.get("premise_code", {}), ctx.get("file_imports", {})
+        code = codes.get((s["_source_version"], s["file_path"], s["full_name"]),
+                         codes.get((s["file_path"], s["full_name"])))
+        imports = headers.get((s["_source_version"], s["file_path"]), headers.get(s["file_path"]))
         prem = []
         for t in tac:
             for p in t.get("premises") or []:
@@ -116,8 +118,8 @@ def to_unified(s, ctx):
     r["quality_flags"] = quality_flags(r)
     r["extra_json"] = s.get("_extra")
     m = ctx.get("manifest", {}).get(s["_raw_uri"], {})
-    r.update(raw_uri=s["_raw_uri"], raw_row=s["_raw_row"], raw_sha256=m.get("sha256"), license=spec["license"],
-             source_url=spec["url"], downloaded_at=m.get("downloaded_at"), ingest_run_id=ctx.get("run_id"),
+    r.update(raw_uri=s["_raw_uri"], raw_row=s["_raw_row"], raw_sha256=m.get("sha256"), license=m.get("license", spec["license"]),
+             source_url=m.get("source_url", spec["url"]), downloaded_at=m.get("downloaded_at"), ingest_run_id=ctx.get("run_id"),
              pipeline_version=PIPELINE_VERSION, schema_version=SCHEMA_VERSION)
     return r
 

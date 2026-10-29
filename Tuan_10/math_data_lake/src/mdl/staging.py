@@ -55,13 +55,25 @@ def build_staging(raw_root=RAW, out_root=STAGING, sources=("numinamath", "proofn
             t0 = time.perf_counter()
             v = SOURCES[src]["version"]
             wp, wf = _Writers(out_root / "leandojo_premise" / v), _Writers(out_root / "leandojo_file" / v)
-            for kind, rec in read_leandojo_corpus(raw_root):
+            corpus = raw_root / "leandojo" / "leandojo_benchmark_4" / "corpus.jsonl"
+            for kind, rec in (read_leandojo_corpus(raw_root) if corpus.exists() else ()):
                 (wp if kind == "premise" else wf).write(rec)
             wp.close()
             wf.close()
             stats["leandojo_corpus"] = {"premises": wp.rows, "files": wf.rows, "bytes": wp.bytes + wf.bytes,
                                         "seconds": round(time.perf_counter() - t0, 2)}
             log(f"[staging] leandojo corpus: {wp.rows} premises, {wf.rows} files")
+    if (raw_root / "api").exists():
+        from .submissions import replay_submissions
+        # Mỗi yêu cầu API có tệp raw riêng; lưu đúng phiên bản được gửi lên.
+        for src in sources:
+            for name, rec in replay_submissions(raw_root, src):
+                w = _Writers(out_root / name / rec["_source_version"])
+                w.write(rec)
+                w.close()
+                if name == src:
+                    stats[src]["rows"] += w.rows
+                    stats[src]["bytes"] += w.bytes
     return stats
 
 
@@ -91,7 +103,11 @@ def load_corpus_lookups(root):
     """Nạp bảng phụ corpus thành dict để join (baseline Python)."""
     code, imports = {}, {}
     for r in iter_jsonl(staging_files(root, "leandojo_premise")):
+        version = r.get("_source_version") or SOURCES["leandojo"]["version"]
+        code.setdefault((version, r["path"], r["full_name"]), r["code"])
         code.setdefault((r["path"], r["full_name"]), r["code"])  # trùng khóa: giữ bản đầu
     for r in iter_jsonl(staging_files(root, "leandojo_file")):
+        version = r.get("_source_version") or SOURCES["leandojo"]["version"]
+        imports[(version, r["path"])] = r["imports"]
         imports[r["path"]] = r["imports"]
     return code, imports

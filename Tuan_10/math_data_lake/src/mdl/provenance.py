@@ -98,16 +98,19 @@ def _expected(rec, raw):
             "lean_start_line": raw["start"][0], "num_tactics": len(raw["traced_tactics"])}
 
 
-def trace(lake_table, storage, manifest, record_ids):
+def trace(lake_table, storage, manifest, record_ids, source_version=None):
     """lake_table: thư mục Parquet math_record; manifest: {raw_uri: entry}. Trả về danh sách kết quả từng record."""
-    ids = ", ".join(f"'{i}'" for i in record_ids)
+    ids = ", ".join("?" for _ in record_ids)
+    if not record_ids:
+        return []
     con = duckdb.connect()
     con.execute("SET memory_limit='1GB'")
     rows = con.execute(f"""SELECT record_id, source, source_version, source_record_key, raw_uri, raw_row, raw_sha256,
         license, nl_problem, nl_solution, subset, formal_statement, lean_full_name, lean_file_path,
         lean_start_line, num_tactics
         FROM read_parquet('{Path(lake_table).as_posix()}/**/*.parquet', hive_partitioning=true)
-        WHERE record_id IN ({ids})""").fetchall()
+        WHERE record_id IN ({ids})""" + (" AND source_version = ?" if source_version else ""),
+        [*record_ids, source_version] if source_version else list(record_ids)).fetchall()
     cols = [d[0] for d in con.description]
     out = []
     for row in rows:

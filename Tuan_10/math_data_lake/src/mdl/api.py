@@ -12,12 +12,13 @@ from typing import Literal, Optional
 
 import duckdb
 import pyarrow.parquet as pq
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Response
 from fastapi import Path as PathParam
 from fastapi.responses import FileResponse
 
 from .config import PIPELINE_VERSION, SCHEMA_VERSION, STORAGE
 from .schema import FIELD_NAMES
+from .submissions import RecordSubmission, SubmissionConflict, submit_record
 
 LAKE = Path(os.environ.get("MDL_LAKE", STORAGE / "lake"))
 MANIFEST = Path(os.environ.get("MDL_MANIFEST", Path(__file__).resolve().parents[2] / "manifest" / "manifest_full.json"))
@@ -32,6 +33,28 @@ app = FastAPI(title="Math Data Lake API", version=PIPELINE_VERSION,
 _con = None
 _lock = threading.Lock()
 _catalog = None
+_write_lock = threading.Lock()
+
+
+@app.post("/records", status_code=201)
+def create_record(payload: RecordSubmission, response: Response):
+    """Lưu raw/staging và nạp một bản ghi vào chính kho API đang phục vụ (cần Java/Spark)."""
+    global _con, _catalog
+    with _write_lock:
+        try:
+            result = submit_record(payload, LAKE, RAW_ROOT, MANIFEST)
+        except SubmissionConflict as exc:
+            raise HTTPException(409, str(exc)) from exc
+        except ValueError as exc:
+            raise HTTPException(422, str(exc)) from exc
+        finally:
+            # DuckDB bind danh sách tệp khi tạo view; tạo view mới sau mỗi lần ghi.
+            with _lock:
+                _con = None
+                _catalog = None
+    if result["status"] == "unchanged":
+        response.status_code = 200
+    return result
 
 
 def con():
@@ -89,10 +112,14 @@ def stats():
 
 
 @app.get("/records/{record_id}")
-def get_record(record_id: str = PathParam(..., pattern=ID_PATTERN)):
-    rows = _rows(con(), "SELECT * FROM math_record WHERE record_id = ?", [record_id])
+def get_record(record_id: str = PathParam(..., pattern=ID_PATTERN), source_version: Optional[str] = None):
+    where = " AND source_version = ?" if source_version else ""
+    rows = _rows(con(), "SELECT * FROM math_record WHERE record_id = ?" + where,
+                 [record_id, source_version] if source_version else [record_id])
     if not rows:
         raise HTTPException(404, "không có record_id này")
+    if len(rows) > 1:
+        raise HTTPException(409, "Có nhiều phiên bản; truyền source_version để chọn bản ghi.")
     return rows[0]
 
 
@@ -132,13 +159,15 @@ def nl_formal_pairs(split: Optional[Literal["valid", "test"]] = None):
 
 
 @app.get("/provenance/{record_id}")
-def provenance(record_id: str = PathParam(..., pattern=ID_PATTERN)):
+def provenance(record_id: str = PathParam(..., pattern=ID_PATTERN), source_version: Optional[str] = None):
     """Truy vết bản ghi về đúng dòng trong tệp raw, kiểm sha256 theo manifest."""
     from .manifest import load_manifest
     from .provenance import trace
-    res = trace(LAKE / "math_record", RAW_ROOT, load_manifest(MANIFEST), [record_id])
+    res = trace(LAKE / "math_record", RAW_ROOT, load_manifest(MANIFEST), [record_id], source_version=source_version)
     if not res:
         raise HTTPException(404, "không có record_id này")
+    if len(res) > 1:
+        raise HTTPException(409, "Có nhiều phiên bản; truyền source_version để chọn provenance.")
     return res[0]
 
 

@@ -91,6 +91,15 @@ def build_manifest(root=RAW, out=None):
         if (root / "leandojo" / LEANDOJO_DIR / f).exists():
             add("leandojo", f"{LEANDOJO_DIR}/{f}", "extracted", tar_time)
 
+    # Dữ liệu do API nhận cũng thuộc raw; giữ provenance khi download lập lại manifest.
+    for p in sorted((root / "api").rglob("*.jsonl")):
+        record = json.loads(p.read_text(encoding="utf-8"))
+        metadata = record["_submission"]
+        entries.append({"source": metadata["source"], "source_version": metadata["source_version"],
+                        "license": metadata["license"], "source_url": metadata["source_url"],
+                        "raw_uri": "raw/" + p.relative_to(root).as_posix(), "kind": "api",
+                        "bytes": p.stat().st_size, "sha256": sha256_file(p),
+                        "downloaded_at": _iso(p.stat().st_mtime)})
     manifest = {
         "manifest_version": "1",
         "created_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),

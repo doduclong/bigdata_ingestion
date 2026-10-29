@@ -33,12 +33,14 @@ def build_catalog(lake, manifest_path):
     for d in sorted(table.glob("source=*/source_version=*")):
         files = list(d.glob("*.parquet"))
         s, v = d.parent.name.split("=", 1)[1], d.name.split("=", 1)[1]
-        n, splits = con.execute(f"SELECT count(*), string_agg(DISTINCT split, ',' ORDER BY split) FROM read_parquet("
+        n, splits, licenses, urls = con.execute(f"SELECT count(*), string_agg(DISTINCT split, ',' ORDER BY split), "
+                                "string_agg(DISTINCT license, ',' ORDER BY license), "
+                                "string_agg(DISTINCT source_url, ',' ORDER BY source_url) FROM read_parquet("
                                 f"'{d.as_posix()}/*.parquet')").fetchone()
         parts.append({"source": s, "source_version": v, "path": str(d.relative_to(lake)).replace("\\", "/"),
                       "rows": n, "splits": splits, "files": len(files),
-                      "bytes": sum(p.stat().st_size for p in files), "license": SOURCES[s]["license"],
-                      "source_url": SOURCES[s]["url"]})
+                      "bytes": sum(p.stat().st_size for p in files), "license": licenses,
+                      "source_url": urls})
     flags = con.execute(f"SELECT source, f, count(*) FROM (SELECT source, unnest(quality_flags) f FROM {src}) "
                         "GROUP BY ALL ORDER BY ALL").fetchall()
     errors = []
